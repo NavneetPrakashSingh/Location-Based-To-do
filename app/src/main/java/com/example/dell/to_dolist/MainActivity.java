@@ -7,9 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         TextView txtView=findViewById(R.id.txtView);
         populateDb();
         fetchData();
-
     }
 
     private void showNotification() {
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
                 .setContentTitle("To-do List")
                 .setContentText("Pick up groceries")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(1, mBuilder.build());
     }
@@ -58,9 +56,8 @@ public class MainActivity extends AppCompatActivity {
                 if((user.user_latitude.equalsIgnoreCase(reminder.latitude)) && (user.user_longitude.equalsIgnoreCase(reminder.longitude)) )
                 showNotification();
             }
-            /*sb.append(String.format(Locale.US,
-                    "%s, %s (%s)\n", reminder.latitude, reminder.longitude, reminder.frequency));*/
         }
-        //txtView.setText(sb);
+        List<Task> tasks=mDb.taskModel().sortTaskByPriority();
+        Toast.makeText(this,""+tasks.get(0).task_name+" "+tasks.get(1).task_name+" "+tasks.get(2).task_name,Toast.LENGTH_SHORT).show();
     }
 }
