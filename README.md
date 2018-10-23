@@ -22,6 +22,42 @@ Similary for dialogs, if we have a class name as ChangeDialogBox, we use dialog_
 
 However, in the case of a a list that is to be inflated with an Adapter, the layout should start with item_.
 
+##### 1.3 Value Files
+
+Resource files in the values folder should be **plural** e.g. strings.xml, colors.xml, styles.xml
+
 ---
+
 ### Coding Guidance
+
+#### 2.1 Java langulage rules
+
+##### 2.1.1 Don't ignore exception
+
+You should never do this :
+
+```java
+try{
+    someComplicatedFunctionThrowningSecurityError()
+someComplicatedFunctionThrowingIOException()
+}catch(Exception ex){
+// catching all exceptions with generic handler
+}
+print s
+```
+
+##### 2.1.2 Use fully qualified imports
+This is bad : **fruit.***
+
+This is good : **fruit.apple**
+
+---
+#### 2.2 Java style rules
+Fields should be at the top of any file and should follow the naming rules as listed below:
+
+1. Private, and non-static fields start with **m**
+2. Private static field start with **s**
+3. Other fields start with lowercase
+4. Static final fields (constants) are ALL_CAPS_WITH_UNDERSCORES
+
 
