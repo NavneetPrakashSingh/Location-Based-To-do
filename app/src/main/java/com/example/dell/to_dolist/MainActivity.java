@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDb = AppDatabase.getInMemoryDatabase(getApplicationContext());
-        TextView txtView=findViewById(R.id.txtView);
+//        TextView txtView=findViewById(R.id.txtView);
         populateDb();
         fetchData();
     }
