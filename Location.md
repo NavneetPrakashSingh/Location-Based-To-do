@@ -1,5 +1,6 @@
 Add the following code snippet if you want to call ChooseLocation.java to select location using Google Api
 MainActivity.xml code
+
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
