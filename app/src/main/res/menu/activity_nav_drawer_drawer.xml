@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/ic_search"
+            android:title="Search" />
+    </group>
+
+    <item android:title="Labels">
+        <menu>
+            <item
+                android:id="@+id/nav_pending"
+                android:icon="@drawable/ic_pending"
+                android:title="Pending Tasks" />
+            <item
+                android:id="@+id/nav_completed"
+                android:icon="@drawable/ic_completed"
+                android:title="Completed Tasks" />
+        </menu>
+    </item>
+
+    <item android:title="Help and Support">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings"
+                android:title="Settings" />
+            <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/ic_feedback"
+                android:title="Feedback" />
+        </menu>
+    </item>
+
+</menu>

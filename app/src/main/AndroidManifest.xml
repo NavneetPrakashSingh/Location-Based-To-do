@@ -33,6 +33,10 @@
         </receiver>
 
         <activity android:name=".ChooseLocation"></activity>
+        <activity
+            android:name=".NavDrawer"
+            android:label="@string/title_activity_nav_drawer"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
