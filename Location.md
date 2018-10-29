@@ -21,3 +21,18 @@ MainActivity.java code
     public void navigate(View view){
         startActivity(new Intent(this,ChooseLocation.class));
     }
+
+Use the following code if you are trying to take the values from an activity
+
+        Boolean checkPermission = Location.CheckPermission(this);
+        if (!checkPermission){
+            Location.requestLocation(this);
+        }else{
+            Location locationValues = new Location();
+            locationValues.getLastKnownLocation(this);
+
+            String longitudeValues = locationValues.getLongitude();
+
+            TextView lastLocation = findViewById(R.id.current_location);
+            lastLocation.setText(String.valueOf(longitudeValues));
+        }
