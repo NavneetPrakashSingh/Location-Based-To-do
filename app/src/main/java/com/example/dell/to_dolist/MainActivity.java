@@ -18,12 +18,12 @@ public class MainActivity extends AppCompatActivity {
 
     private AppDatabase mDb;
     private TextView txtView;
-    private Button add;
+    private FloatingActionButton add;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        add = (Button) findViewById(R.id.add);
+        add = (FloatingActionButton) findViewById(R.id.add);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
