@@ -37,6 +37,13 @@
             android:name=".NavDrawer"
             android:label="@string/title_activity_nav_drawer"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+            
+        <activity
+            android:name=".Pop"
+            android:label="@string/title_activity_pop"
+            android:theme="@style/Popup"></activity>    
+            
+            
     </application>
 
 </manifest>
