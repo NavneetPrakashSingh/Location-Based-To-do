@@ -1,4 +1,4 @@
-package com.example.dell.to_dolist;
+package com.example.dell.to_dolist.db.model;
 
 import android.app.Activity;
 import android.content.Context;

@@ -2,10 +2,10 @@ package com.example.dell.to_dolist;
 
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
-import java.util.Calendar;
-import java.util.Date;
+import com.example.dell.to_dolist.db.model.Reminder;
+import com.example.dell.to_dolist.db.model.Task;
+import com.example.dell.to_dolist.db.model.User;
 
 public class DatabaseInitializer {
 
@@ -44,20 +44,22 @@ public class DatabaseInitializer {
         db.reminderModel().insertReminder(reminder);
         return reminder;
     }
+    /*
+    Commented by Sharon
     private static Task addTask(final AppDatabase db, final String id, final String creation_date, final String task_name, final String priority,
-            final String update_date, final String rem_id, final String task_status, final String locaton_flag) {
+                                final String update_date, final String rem_id, final String task_status, final String locaton_flag) {
         Task task = new Task();
-        task.id = rem_id;
-        task.priority = priority;
-        task.creation_date=creation_date;
-        task.task_name=task_name;
-        task.update_date=update_date;
-        task.rem_id=rem_id;
-        task.task_status=task_status;
-        task.locaton_flag=locaton_flag;
+        task.setId(rem_id);
+        task.setPriority(priority);
+        task.setCreationDate(creation_date);
+        task.setTaskName(task_name);
+        task.setUpdateDate(update_date);
+        task.setReminderId(rem_id);
+        task.setTaskStatus(task_status);
+        task.setLocatonFlag(locaton_flag);
         db.taskModel().insertTask(task);
         return task;
-    }
+    }*/
     private static User addUser(final AppDatabase db, final String user_id, final String user_latitude, final String user_longitude) {
         User user = new User();
         user.user_id = user_id;
@@ -73,9 +75,12 @@ public class DatabaseInitializer {
         Reminder reminder1 = addReminder(db, "1", "1", "1.2333", "1.38989", "","1");
         Reminder reminder2 = addReminder(db, "2", "1", "3.4983", "5.39989", "", "2");
         Reminder reminder3 = addReminder(db, "3", "1", "1.7874", "2.54345","","6");
-        Task task1 = addTask(db, "1", "1/2/3", "Groceries", "1", "2/2/3","1","1","1");
+      /*
+      * Commented by Shraon Alva on 30/10/2018
+      *
+      Task task1 = addTask(db, "1", "1/2/3", "Groceries", "1", "2/2/3","1","1","1");
         Task task2 = addTask(db, "2", "1/2/3", "PickUp", "0", "2/2/3", "2","1","1");
-        Task task3 = addTask(db, "3", "1/2/3", "List", "1","2/2/3","6","1","1");
+        Task task3 = addTask(db, "3", "1/2/3", "List", "1","2/2/3","6","1","1");*/
 
        /* try {
             // Loans are added with a delay, to have time for the UI to react to changes.
@@ -91,12 +96,12 @@ public class DatabaseInitializer {
 
     }
 
-  /*  private static Date getTodayPlusDays(int daysAgo) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, daysAgo);
-        return calendar.getTime();
-    }
-*/
+    /*  private static Date getTodayPlusDays(int daysAgo) {
+          Calendar calendar = Calendar.getInstance();
+          calendar.add(Calendar.DATE, daysAgo);
+          return calendar.getTime();
+      }
+  */
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
         private final AppDatabase mDb;
@@ -113,4 +118,3 @@ public class DatabaseInitializer {
 
     }
 }
-

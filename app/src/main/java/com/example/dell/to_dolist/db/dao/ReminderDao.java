@@ -1,9 +1,11 @@
-package com.example.dell.to_dolist;
+package com.example.dell.to_dolist.db.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+
+import com.example.dell.to_dolist.db.model.Reminder;
 
 import java.util.List;
 

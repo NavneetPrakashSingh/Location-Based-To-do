@@ -1,4 +1,4 @@
-package com.example.dell.to_dolist;
+package com.example.dell.to_dolist.db.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
