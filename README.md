@@ -1,5 +1,5 @@
 # Identification
-#### To-do List Application <img src="todo.png" alt="Logo Icon" style="float: right; margin-right: 10px;" />
+#### To-do List Application <img src="/ProjectDocumentation/LogoDesignFiles/todo.png" alt="Logo Icon" style="float: right; margin-right: 10px;" />
 
 Group Members:
 | Name  	|Banner ID   	|
