@@ -1,5 +1,5 @@
 # Identification
-#### To-do List Application <img src="/ProjectDocumentation/LogoDesignFiles/todo.png" alt="Logo Icon"  width="150" height="113" style="float: right; margin-right: 10px;" />
+#### To-do List Application <img align="right" src="/ProjectDocumentation/LogoDesignFiles/todo.png" alt="Logo Icon"  width="150" height="113" style="float: right; margin-right: 10px;" />
 
 Group Members: 
 
@@ -20,7 +20,7 @@ To-Do list in an application that provides an easy way in managing day-to-day ta
 
 
 ## Libraries
-Provide a list of **ALL** the libraries you used for your project. Example:
+List of all the libraries used in the project
 
 **v7 Support Libraries:** CardView package of this library was used for displaying tasks list. Source [here](https://developer.android.com/topic/libraries/support-library/packages)
 
