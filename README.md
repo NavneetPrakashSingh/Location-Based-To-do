@@ -1,7 +1,7 @@
 # Identification
-#### To-do List Application <img src="/ProjectDocumentation/LogoDesignFiles/todo.png" alt="Logo Icon" style="float: right; margin-right: 10px;" />
+#### To-do List Application <img src="/ProjectDocumentation/LogoDesignFiles/todo.png" alt="Logo Icon" width="42" height="42" style="float: right; margin-right: 10px;" />
 
-Group Members:
+Group Members: <br/>
 | Name  	|Banner ID   	|
 |---	|---	|
 |  Jessica Castelino 	|    	|
