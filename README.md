@@ -1,15 +1,15 @@
 # Identification
-#### To-do List Application <img src="/ProjectDocumentation/LogoDesignFiles/todo.png" alt="Logo Icon" width="42" height="42" style="float: right; margin-right: 10px;" />
+#### To-do List Application <img src="/ProjectDocumentation/LogoDesignFiles/todo.png" alt="Logo Icon"  width="150" height="113" style="float: right; margin-right: 10px;" />
 
 Group Members: <br/>
-| Name  	|Banner ID   	|
-|---	|---	|
-|  Jessica Castelino 	|    	|
-|   Navneet Prakash Singh 	|   	|
-| Shubham Narang  	|   	|
-| Sharon Alva  	|  B00813350 	|
-|   Utsav Soni   	|  B00812689	|
-| Jismy Johnson| B00813344|
+| Name  	|Banner ID   	|<br/>
+|---	|---	|<br/>
+|  Jessica Castelino 	|    	|<br/>
+|   Navneet Prakash Singh 	|   	|<br/>
+| Shubham Narang  	|   	|<br/>
+| Sharon Alva  	|  B00813350 	|<br/>
+|   Utsav Soni   	|  B00812689	|<br/>
+| Jismy Johnson| B00813344|<br/>
 
 Contact email: jessica.castelino@dal.ca
 
