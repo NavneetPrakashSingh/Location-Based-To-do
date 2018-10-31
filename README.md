@@ -47,8 +47,8 @@ List all the main features of your application with a brief description of each 
 We have completed around 30% of the project. We have implemented the backend functionalities and some of the UI implementation as well. Status of the functionalities are listed below.
 
 #### Minimum Functionality
-- Feature 1 Create, update and remove tasks in list (Completed)
-- Feature 2 Task sorting (Not Implemented)
+- Feature 1 Create, update and remove tasks in list (Partially Implemented)
+- Feature 2 Task sorting (Partially Implemented)
 - Feature 3 Support form (Not Implemented)
 
 #### Expected Functionality
