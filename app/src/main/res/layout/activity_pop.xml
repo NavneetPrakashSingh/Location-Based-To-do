@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorPrimary"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:baselineAligned="false"
+    android:orientation="vertical"
+    android:visibility="visible"
     tools:context=".Pop">
 
 
@@ -17,23 +18,86 @@
 
 
         <EditText
-            android:id="@+id/task"
+            android:id="@+id/editText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Enter your task"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="23sp" />
+            android:hint="Title"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
 
-        <TextView
-            android:id="@+id/mdisplay"
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="55dp"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:hint="u will see date"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="23sp" />
+            android:layout_height="wrap_content"
+            android:divider="@android:color/transparent"
+            android:textColor="@android:color/white"/>
+
+        <ImageButton
+            android:id="@+id/button"
+            android:layout_width="58dp"
+            android:layout_height="49dp"
+            android:background="@null"
+            android:src="@android:drawable/ic_menu_add"
+            android:visibility="visible" />
+
     </LinearLayout>
 
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
+
+
+        <ImageButton
+            android:id="@+id/submit"
+            android:layout_width="58dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@android:drawable/ic_menu_upload"
+            android:background="@null"/>
+
+
+        <ImageButton
+
+            android:id="@+id/calender"
+            android:layout_width="58dp"
+            android:layout_height="match_parent"
+            android:src="@android:drawable/ic_menu_my_calendar"
+            android:background="@null"/>
+
+        <ImageButton
+            android:id="@+id/location"
+            android:layout_width="58dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@android:drawable/ic_menu_mylocation"
+            android:background="@null"/>
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
