@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int NEW_TASK_ACTIVITY_REQUEST_CODE = 1;
 
     private TaskViewModel mTaskViewModel;
+    private FloatingActionButton add;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,12 +66,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+     //Changed fab to add
+
+        add = (FloatingActionButton) findViewById(R.id.add);
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AddTaskActivity.class);
-                startActivityForResult(intent, NEW_TASK_ACTIVITY_REQUEST_CODE);
+            public void onClick(View v) {
+                // Intent intent = new Intent(MainActivity.this, AddTaskActivity.class);
+                //startActivityForResult(intent, NEW_TASK_ACTIVITY_REQUEST_CODE);
+
+                startActivity(new Intent(MainActivity.this,Pop.class));
+
+
             }
         });
 
