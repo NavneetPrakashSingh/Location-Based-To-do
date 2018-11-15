@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -32,7 +33,7 @@ public class Pop extends Activity {
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
-    private EditText editTxt;
+
     private ImageButton btn;
     private ImageButton submit;
     private ImageButton location;
@@ -48,7 +49,7 @@ public class Pop extends Activity {
         setContentView(R.layout.activity_pop);
 
 
-        editTxt = (EditText) findViewById(R.id.editText);
+        EditText editTxt1 = findViewById(R.id.editText);
         btn = (ImageButton) findViewById(R.id.button);
         submit = (ImageButton) findViewById(R.id.submit);
         location = (ImageButton) findViewById(R.id.location);
@@ -133,7 +134,19 @@ public class Pop extends Activity {
             }
         };
 
+        Bundle getValueBack = getIntent().getExtras();
+        if (getValueBack != null) {
+            if (getValueBack.getString("Location") != null) {
+                Toast.makeText(this,getValueBack.getString("Location"),Toast.LENGTH_SHORT).show();
+//                TextView locationText = (TextView) findViewById(R.id.LocationText);
+//                locationText.setText(getValueBack.getString("Location"));
+            }
+        }
 
+    }
+
+    public void selectLocation(View view){
+        startActivity(new Intent(this,ChooseLocation.class));
     }
 }
 
