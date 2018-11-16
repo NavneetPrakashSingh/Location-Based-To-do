@@ -22,25 +22,33 @@ package com.example.dell.to_dolist;
  */
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 
 public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskViewHolder> {
 
     class TaskViewHolder extends RecyclerView.ViewHolder {
-        private final TextView taskName, taskContent;
+        private final TextView taskName, taskContent, taskId;
+        public RelativeLayout relativelayout;
 
         private TaskViewHolder(View itemView) {
             super(itemView);
+            taskId = itemView.findViewById(R.id.task_id);
             taskName = itemView.findViewById(R.id.taskName);
             taskContent = itemView.findViewById(R.id.task_description);
+            relativelayout = itemView.findViewById(R.id.todo_list);
         }
     }
 
@@ -56,10 +64,20 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
     }
 
     @Override
-    public void onBindViewHolder(TaskViewHolder holder, int position) {
-        TaskDisplay current = mTasks.get(position);
+    public void onBindViewHolder(final TaskViewHolder holder, final int position) {
+        final TaskDisplay current = mTasks.get(position);
         holder.taskName.setText(current.getTitle());
         holder.taskContent.setText(current.getContent());
+
+        holder.relativelayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(holder.relativelayout.getContext(), Update.class);
+                String message = String.valueOf(current.getId());
+                intent.putExtra("id", message);
+                holder.relativelayout.getContext().startActivity(intent);
+            }
+        });
     }
 
     void setTasks(List<TaskDisplay> tasks){
