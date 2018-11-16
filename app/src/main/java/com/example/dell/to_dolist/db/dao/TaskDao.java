@@ -23,9 +23,12 @@ public interface TaskDao {
     @Query("DELETE FROM task_table")
     void deleteAllTasks();
 
-    @Query("SELECT task_title,task_content from task_table")
+    @Query("SELECT task_id, task_title,task_content from task_table")
     LiveData<List<TaskDisplay>> getTaskList();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertTask(Task task);
+
+    @Query("SELECT * FROM task_table WHERE task_id = :taskId")
+    Task fetchTaskById(int taskId);
 }

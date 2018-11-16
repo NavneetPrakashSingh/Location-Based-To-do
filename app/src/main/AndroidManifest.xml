@@ -22,6 +22,10 @@
         </activity>
 
         <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+
+        <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBYZBHMJTI7L244c-5AObOFNwkuMSMMCpI" />
 
@@ -32,18 +36,16 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".ChooseLocation"></activity>
+        <activity android:name=".ChooseLocation" />
         <activity
             android:name=".NavDrawer"
             android:label="@string/title_activity_nav_drawer"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-            
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Pop"
             android:label="Popup"
-            android:theme="@style/Popup"></activity>    
-            
-            
+            android:theme="@style/Popup" />
+        <activity android:name=".Update"></activity>
     </application>
 
 </manifest>

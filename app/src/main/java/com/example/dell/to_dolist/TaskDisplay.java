@@ -24,10 +24,17 @@ public class TaskDisplay {
         this.content = content;
     }
 
+    public void setId(int _id){this.id = _id;}
+    public int getId(){return id;}
+
     @ColumnInfo(name = "task_title")
     private String title;
 
     @ColumnInfo(name = "task_content")
     private String content;
+
+    @ColumnInfo(name = "task_id")
+    private int id;
+
 }
 
