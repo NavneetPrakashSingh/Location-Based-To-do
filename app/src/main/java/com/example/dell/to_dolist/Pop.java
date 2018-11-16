@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import android.util.DisplayMetrics;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ public class Pop extends Activity {
 
     private EditText editTxt;
     private ImageButton btn;
+    private ImageButton btnCancel;
     private ImageButton submit;
     private ImageButton location;
     private ImageButton calender;
@@ -53,11 +55,12 @@ public class Pop extends Activity {
         submit = (ImageButton) findViewById(R.id.submit);
         location = (ImageButton) findViewById(R.id.location);
         calender = (ImageButton) findViewById(R.id.calender);
+        btnCancel = (ImageButton) findViewById(R.id.btnCancel);
         list = (ListView) findViewById(R.id.listView);
         arrayList = new ArrayList<String>();
 
 
-        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList);
+        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, arrayList);
 
         list.setAdapter(adapter);
 
@@ -67,7 +70,7 @@ public class Pop extends Activity {
         int width = metric.widthPixels;
         int height = metric.heightPixels;
 
-        getWindow().setLayout((int) (width * 0.8), (int) (height * 0.8));
+        getWindow().setLayout((int) (width * 0.7), (int) (height * 0.7));
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +108,35 @@ public class Pop extends Activity {
         });
 
 
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                SparseBooleanArray positioncheck = list.getCheckedItemPositions();
+
+                int count = list.getCount();
+
+                for(int i = count -1; i>=0; i--) {
+                    if (positioncheck.get(i)) {
+
+                        adapter.remove(arrayList.get(i));
+
+                    }
+                }
+
+                positioncheck.clear();
+
+                adapter.notifyDataSetChanged();
+
+
+
+            }
+        });
+
+
+
         calender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,7 +147,7 @@ public class Pop extends Activity {
 
                 DatePickerDialog dialog = new DatePickerDialog(
                         Pop.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen,
                         mDateSetListener,
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
