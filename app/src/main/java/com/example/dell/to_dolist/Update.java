@@ -100,8 +100,25 @@ public class Update extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_delete:
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        appDatabase.taskModel().deleteTaskById(id);
+                    }
+                }).start();
+                Toast.makeText(Update.this,"Data deleted for id"+id,Toast.LENGTH_SHORT).show();
+
             case R.id.action_save:
-                Toast.makeText(this,"Data Saved",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Update.this,"Data Saved For id"+id,Toast.LENGTH_SHORT).show();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+
+                    }
+                });
+
                 return true;
 
             default:

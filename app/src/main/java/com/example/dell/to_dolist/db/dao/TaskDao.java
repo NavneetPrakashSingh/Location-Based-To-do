@@ -23,6 +23,9 @@ public interface TaskDao {
     @Query("DELETE FROM task_table")
     void deleteAllTasks();
 
+    @Query("DELETE FROM task_table where task_id = :taskId")
+    void deleteTaskById(int taskId);
+
     @Query("SELECT task_id, task_title,task_content from task_table")
     LiveData<List<TaskDisplay>> getTaskList();
 
@@ -31,4 +34,6 @@ public interface TaskDao {
 
     @Query("SELECT * FROM task_table WHERE task_id = :taskId")
     Task fetchTaskById(int taskId);
+
+
 }
