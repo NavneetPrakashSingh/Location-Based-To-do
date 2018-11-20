@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.app.AlertDialog;
 import android.widget.Toast;
 
+import com.example.dell.to_dolist.db.model.Subtask;
 import com.example.dell.to_dolist.db.model.Task;
 
 import java.util.ArrayList;
@@ -145,15 +146,20 @@ public class Pop extends Activity {
             public void onClick(View v) {
 
                 String value ="";
-                for (int i=0;i<arrayList.size();i++){
-                    value = value + arrayList.get(i);
-                }
+
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         String titleValue = String.valueOf(editTxt1.getText());
                         Task task = new Task(titleValue,"Milk","1/2/3","1","2/2/3","1","1","1");
-                        appDatabase.taskModel().insertTask(task);
+                        Long lastestTaskInserted = appDatabase.taskModel().insertTaskWithId(task);
+
+                        for (int i=0;i<arrayList.size();i++){
+                            Subtask sTask = new Subtask(String.valueOf(arrayList.get(i)),lastestTaskInserted.intValue(),0);
+                            appDatabase.subTaskModel().insertSubTask(sTask);
+                        }
+
+                        Log.i("----------",String.valueOf(lastestTaskInserted));
                     }
                 }).start();
             }
