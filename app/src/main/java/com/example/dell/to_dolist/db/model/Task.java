@@ -3,6 +3,8 @@ package com.example.dell.to_dolist.db.model;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 @Entity(tableName = "task_table")
 public class Task {
@@ -11,23 +13,36 @@ public class Task {
     private int task_id;
 
     @ColumnInfo(name = "task_title")
+    @NonNull
     private String title;
 
     @ColumnInfo(name = "task_content")
+    @Nullable
     private String content;
+
     @ColumnInfo(name = "creation_date")
+    @Nullable
     private String creationDate;
+
     /*@ColumnInfo(name = "taskName")
     private String taskName;*/
     @ColumnInfo(name = "priority")
+    @Nullable
     private String priority;
+
     @ColumnInfo(name = "updateDate")
+    @Nullable
     private String updateDate;
+
     @ColumnInfo(name = "rem_flag")
+    @Nullable
     private String remFlag;
+
     @ColumnInfo(name = "taskStatus")
+    @Nullable
     private String taskStatus;
     @ColumnInfo(name = "locatonFlag")
+    @Nullable
     private String locatonFlag;
 
     public Task(String title, String content, String creationDate, String priority, String updateDate, String remFlag, String taskStatus, String locatonFlag) {
@@ -41,6 +56,8 @@ public class Task {
         this.taskStatus = taskStatus;
         this.locatonFlag = locatonFlag;
     }
+
+
 
     public int getTask_id() {
         return task_id;

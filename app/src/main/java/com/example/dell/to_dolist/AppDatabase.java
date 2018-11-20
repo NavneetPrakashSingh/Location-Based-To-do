@@ -15,7 +15,7 @@ import com.example.dell.to_dolist.db.model.Reminder;
 import com.example.dell.to_dolist.db.model.Task;
 import com.example.dell.to_dolist.db.model.User;
 
-@Database(entities = {Reminder.class, User.class, Task.class}, version = 1)
+@Database(entities = {Reminder.class, User.class, Task.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase{
 
     private static AppDatabase INSTANCE;
@@ -77,13 +77,13 @@ public abstract class AppDatabase extends RoomDatabase{
         protected Void doInBackground(final Void... params) {
             // Start the app with a clean database every time.
             // Not needed if you only populate on creation.
-            mDao.deleteAllTasks();
-
-            Task task = new Task("Grocery List","Milk","1/2/3","1","2/2/3","1","1","1");
-            mDao.insertTask(task);
-
-            Task task1 = new Task("Shopping List","Dress","1/2/3","0","2/2/3","2","1","1");
-            mDao.insertTask(task1);
+//            mDao.deleteAllTasks();
+//
+//            Task task = new Task("Grocery List","Milk","1/2/3","1","2/2/3","1","1","1");
+//            mDao.insertTask(task);
+//
+//            Task task1 = new Task("Shopping List","Dress","1/2/3","0","2/2/3","2","1","1");
+//            mDao.insertTask(task1);
             return null;
         }
     }
