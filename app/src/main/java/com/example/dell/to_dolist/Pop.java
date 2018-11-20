@@ -103,8 +103,6 @@ public class Pop extends Activity {
                             }
                         })
                         .show();
-
-
             }
         });
 
@@ -136,6 +134,18 @@ public class Pop extends Activity {
             }
         });
 
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(),"toast clicked",Toast.LENGTH_SHORT).show();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                }).start();
+            }
+        });
 
 
         calender.setOnClickListener(new View.OnClickListener() {
