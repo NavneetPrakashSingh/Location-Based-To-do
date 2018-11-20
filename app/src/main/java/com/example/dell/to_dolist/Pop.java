@@ -3,6 +3,7 @@ package com.example.dell.to_dolist;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.arch.persistence.room.Room;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,6 +11,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,12 +26,16 @@ import android.widget.TextView;
 import android.app.AlertDialog;
 import android.widget.Toast;
 
+import com.example.dell.to_dolist.db.model.Task;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Pop extends Activity {
 
     //private static final String TAG = "Pop";
+    private static final String DATABASE_NAME = "todo_database";
+    private AppDatabase appDatabase = Room.databaseBuilder(this,AppDatabase.class,DATABASE_NAME).fallbackToDestructiveMigration().build();
 
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -51,7 +57,7 @@ public class Pop extends Activity {
         setContentView(R.layout.activity_pop);
 
 
-        EditText editTxt1 = findViewById(R.id.editText);
+        final EditText editTxt1 = findViewById(R.id.editText);
         btn = (ImageButton) findViewById(R.id.button);
         submit = (ImageButton) findViewById(R.id.submit);
         location = (ImageButton) findViewById(R.id.location);
@@ -137,11 +143,17 @@ public class Pop extends Activity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(getApplicationContext(),"toast clicked",Toast.LENGTH_SHORT).show();
+
+                String value ="";
+                for (int i=0;i<arrayList.size();i++){
+                    value = value + arrayList.get(i);
+                }
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-
+                        String titleValue = String.valueOf(editTxt1.getText());
+                        Task task = new Task(titleValue,"Milk","1/2/3","1","2/2/3","1","1","1");
+                        appDatabase.taskModel().insertTask(task);
                     }
                 }).start();
             }
