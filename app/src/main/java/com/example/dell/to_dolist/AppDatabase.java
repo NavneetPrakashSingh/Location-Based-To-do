@@ -9,13 +9,15 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
 import com.example.dell.to_dolist.db.dao.ReminderDao;
+import com.example.dell.to_dolist.db.dao.SubtaskDao;
 import com.example.dell.to_dolist.db.dao.TaskDao;
 import com.example.dell.to_dolist.db.dao.UserDao;
 import com.example.dell.to_dolist.db.model.Reminder;
+import com.example.dell.to_dolist.db.model.Subtask;
 import com.example.dell.to_dolist.db.model.Task;
 import com.example.dell.to_dolist.db.model.User;
 
-@Database(entities = {Reminder.class, User.class, Task.class}, version = 2)
+@Database(entities = {Reminder.class, User.class, Task.class, Subtask.class}, version = 4)
 public abstract class AppDatabase extends RoomDatabase{
 
     private static AppDatabase INSTANCE;
@@ -23,6 +25,7 @@ public abstract class AppDatabase extends RoomDatabase{
     public abstract ReminderDao reminderModel();
     public abstract UserDao userModel();
     public abstract TaskDao taskModel();
+    public abstract SubtaskDao subTaskModel();
 
   /*  public static AppDatabase getDatabase(Context context) {
         if (INSTANCE == null) {

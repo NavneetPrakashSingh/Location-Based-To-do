@@ -32,8 +32,10 @@ public interface TaskDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertTask(Task task);
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    long insertTaskWithId(Task task);
+
     @Query("SELECT * FROM task_table WHERE task_id = :taskId")
     Task fetchTaskById(int taskId);
-
 
 }
