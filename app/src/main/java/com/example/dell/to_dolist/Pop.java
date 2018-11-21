@@ -6,10 +6,13 @@ import android.app.Dialog;
 import android.arch.persistence.room.Room;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 
+import android.provider.MediaStore;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.SparseBooleanArray;
@@ -18,9 +21,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.app.AlertDialog;
@@ -51,6 +56,8 @@ public class Pop extends Activity {
     private ArrayAdapter<String> adapter;
     private ArrayList<String> arrayList;
 
+    private Button selectCamera;
+    private ImageView displayImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +73,58 @@ public class Pop extends Activity {
         btnCancel = (ImageButton) findViewById(R.id.btnCancel);
         list = (ListView) findViewById(R.id.listView);
         arrayList = new ArrayList<String>();
+
+        selectCamera = (Button) findViewById(R.id.selectCamera);
+        displayImage = (ImageView) findViewById(R.id.displayImage);
+
+
+
+
+        selectCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                final CharSequence[] items = { "Take Photo", "Choose from Library",
+                        "Cancel" };
+                AlertDialog.Builder builder = new AlertDialog.Builder(Pop.this);
+                builder.setTitle("Add Photo!");
+
+                builder.setItems(items, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int item) {
+
+                        if (items[item].equals("Take Photo")) {
+                            camera();
+                        } else if (items[item].equals("Choose from Library")) {
+
+                            gallery();
+                        } else if (items[item].equals("Cancel")) {
+                            dialog.dismiss();
+                        }
+
+
+
+
+
+                    }
+                });
+
+                builder.show();
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
 
 
         adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, arrayList);
@@ -208,8 +267,66 @@ public class Pop extends Activity {
     public void selectLocation(View view){
         startActivity(new Intent(this,ChooseLocation.class));
     }
-}
 
+
+    private void camera()
+    {
+
+        Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(camera, 1);
+
+    }
+
+
+    private void gallery()
+
+    {
+
+        Intent gallery = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(gallery , 2);
+
+    }
+
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case 1:
+                if(resultCode == RESULT_OK){
+                    Bitmap photo = (Bitmap) data.getExtras().get("data");
+                    displayImage.setImageBitmap(photo);
+                    //Uri selectedImage = imageReturnedIntent.getData();
+                    // displayImage.setImageURI(selectedImage);
+
+
+                }
+
+
+                break;
+            case 2:
+                if(resultCode == RESULT_OK){
+                    Uri selectedImage = data.getData();
+                    displayImage.setImageURI(selectedImage);
+                }
+                break;
+        }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
 
 
 
