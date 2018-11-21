@@ -27,11 +27,20 @@ List of all the libraries used in the project
 
 ## Problems Encountered
 
-Initially updated project structure was not as per the Coding standards. This created trouble in merging all future code blocks.
+-Internal project updates 
+During the initial development phase, there was a lot of confusion on the amount of work completed. Some team members sent updates by e-mail, others on WhatsApp and there was no single place where we could keep a record of what has been done and what is coming next. To resolve this issue, we made use of Slack app. All the communication regarding project updates were restricted to Slack to ensure that everyone was on the same page. 
 
-```
-Code snippet goes here
-```
+-Adhering to coding conventions 
+After the initial commits on GitHub, it was noticed that the code developed violated the Java coding conventions on various levels. As a team, we investigated the problem, invested our time to read the Java coding conventions defined on the Oracle website, and ensured that all rectify it without affecting the timelines.  
+
+Integration efforts 
+Integration is crucial to ensure that all parts of the project fit together. Our milestones incorporated development of individual tasks, however, the integration efforts required were not considered. This affected our timelines.  
+
+Bugs 
+Minor bugs in the code were detected during the implementation. This was then resolved by discussing within the group. Using this method helped in accomplishing the deliverables faster, as a different approach for a problem, solved the issue. 
+
+Differences in Gradle version 
+Some team members found a difficulty to run the code pulled from GitHub after the initial commits were made. On investigating the problem, we realized that there was a mismatch in the Gradle versions used by every team member. As a result, the code updated to GitHub could not be executed and problems related to Gradle sync were encountered. We updated the Gradle to the same version on our machines to resolve this issue. 
 
 ## Feature Section
 
