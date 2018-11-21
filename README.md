@@ -53,17 +53,49 @@ Initial wireframe was difficult to implement and due to our limited android know
 
 - Database restructuring 
 
-The database was normalized till NF form. We had kept separate tables to store the individual tasks and the reminder details. The location-based reminder functionality, which runs as a background service, compares the user’s location with the location details stored in the database. This required a constant join operation which was inefficient and unreasonable. Hence, database restructuring was done. 
+The database was normalized till NF form. We had kept separate tables to store the individual tasks and the reminder details. The location-based reminder functionality, which runs as a background service, compares the user’s location with the location details stored in the database. This required a constant join operation which was inefficient and unreasonable. Hence, database restructuring was done.
+
+- Reducing memory footprint: 
+
+The location-based reminder functionality runs as a background service, constantly polling for the user’s GPS coordinates and comparing it with the destination location stored in the database. During the analysis phase, we realized that such a service can increase the memory footprint.
 
 ## Feature Section
 
-User can create, update and remove task from the to-do list. A view group, name, ListView will be used to achieve this. The user will have the ability to sort task according to date and priority. The priority will have three levels that indicate their level of importance and moreover, are easily understandable by their term: High, Medium, and Low. Support form, that will connect the user to the customer assistance
+- Add new task: 
 
-The user will have an alert in the notification panel related to the pending task which will help the user to keep the track of their remaining goals. For this we will be using _NotificationCompat APIs_ of Android support library. Using Google API and location services, we will achieve to location-based adding of a to-do list, where a user can tag a location to their task and can get notified upon being near to that location. We will be using _android.location_ package to provide our application access to location services. For map, we will be using MapView class of Google Maps Android API to display it. 
+The application allows users to add a new task such as “Grocery”. This task can have multiple sub-tasks such as “Milk, bread, cheese” added under Grocery. The task title and its sub-task elements are stored in the database. 
 
-Visualization for task’s progress i.e. showing how many pending to-do list items are left in the form of a progress bar. Providing images support to the app, where a user will be using camera feature, to add to do list. For this, we will be using _android.hardware.camera2 API_ that is supported by Android Framework.
+- View tasks on home screen: 
 
-List all the main features of your application with a brief description of each feature.
+Every task created will be displayed on the home screen of the application. The order of display is as per the creation time. Instead of displaying all the subtasks at home screen, only the task title is displayed. This removes clutter on the home screen. 
+
+- Checking / unchecking task: 
+
+The application allows the user to check off the task is complete. Once the task is complete, a user may want to either check or uncheck the task. This gives the user an idea of how many tasks are completed. It helps the user to focus on other pending activities. 
+
+- Update existing task: 
+
+The application allows the user to update an existing task. As user freedom and control is of high importance, users can update an already created task. The app allows editing the task title, location, reminder date and the subtasks listed. This helps users in updating and changing as per their needs. 
+
+- Delete task: 
+
+The application allows the user to delete an existing task. Once the task is selected, an option to delete is available on the menu bar and user can delete the task. There are times when the task is of no value, too old to maintain, or an incorrect task detail. This feature allows users to delete unwanted tasks. 
+
+- Camera feature: 
+
+The application allows a user to upload To Do list as an image. It provides two options to get an image. First, a user can use his camera to click a picture of a list and the application will upload that in the database. Second, a user can upload an existing picture from gallery.   
+
+- Location tagging: 
+
+Location can be tagged against a task. User searches for the address or location and a list appear which is taken from Google API. Once the user selects the task, details are stored and reflected against the task that location. 
+
+- Location-based reminder: 
+
+The application gives a provision to the user to set a location for every task. In the future, if the user happens to be around that location, a reminder will be sent to the user in the form of a notification. 
+
+- Support & Feedback: 
+
+A simple feedback form will be displayed for the user to send their concerns and queries regarding the application. This feature will be accessible from the drawable menu. By providing support regarding the app, it helps not only them with their concerns, but also us as to how effectively the application was developed. 
 
 ## Project Status
 We have completed around 30% of the project. We have implemented the backend functionalities and some of the UI implementation as well. Status of the functionalities are listed below.
