@@ -23,6 +23,7 @@ package com.example.dell.to_dolist;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -66,6 +67,13 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
     @Override
     public void onBindViewHolder(final TaskViewHolder holder, final int position) {
         final TaskDisplay current = mTasks.get(position);
+        //set alternate colors for card view
+        if(position % 2 == 0){
+            holder.relativelayout.setBackgroundColor(Color.parseColor("#bdd7e7"));
+        }
+        else{
+            holder.relativelayout.setBackgroundColor(Color.parseColor("#08519c"));
+        }
         holder.taskName.setText(current.getTitle());
         holder.taskContent.setText(current.getContent());
 
