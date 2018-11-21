@@ -47,6 +47,14 @@ Minor bugs in the code were detected during the implementation. This was then re
 
 Some team members found a difficulty to run the code pulled from GitHub after the initial commits were made. On investigating the problem, we realized that there was a mismatch in the Gradle versions used by every team member. As a result, the code updated to GitHub could not be executed and problems related to Gradle sync were encountered. We updated the Gradle to the same version on our machines to resolve this issue. 
 
+- Change in design 
+
+Initial wireframe was difficult to implement and due to our limited android knowledge, we couldn’t replicate the design completely.  
+
+- Database restructuring 
+
+The database was normalized till NF form. We had kept separate tables to store the individual tasks and the reminder details. The location-based reminder functionality, which runs as a background service, compares the user’s location with the location details stored in the database. This required a constant join operation which was inefficient and unreasonable. Hence, database restructuring was done. 
+
 ## Feature Section
 
 User can create, update and remove task from the to-do list. A view group, name, ListView will be used to achieve this. The user will have the ability to sort task according to date and priority. The priority will have three levels that indicate their level of importance and moreover, are easily understandable by their term: High, Medium, and Low. Support form, that will connect the user to the customer assistance
