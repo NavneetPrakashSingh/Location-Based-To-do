@@ -7,6 +7,7 @@ import android.arch.persistence.room.Room;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -27,6 +28,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.app.AlertDialog;
 import android.widget.Toast;
@@ -34,6 +36,7 @@ import android.widget.Toast;
 import com.example.dell.to_dolist.db.model.Subtask;
 import com.example.dell.to_dolist.db.model.Task;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -55,6 +58,10 @@ public class Pop extends Activity {
     private ListView list;
     private ArrayAdapter<String> adapter;
     private ArrayList<String> arrayList;
+    private byte[] photobyteDB;
+    private byte[] dbFetchedbyte;
+    private Bitmap photofinal;
+    private ProgressBar mprogress;
 
     private Button selectCamera;
     private ImageView displayImage;
@@ -73,6 +80,8 @@ public class Pop extends Activity {
         btnCancel = (ImageButton) findViewById(R.id.btnCancel);
         list = (ListView) findViewById(R.id.listView);
         arrayList = new ArrayList<String>();
+        mprogress = (ProgressBar)findViewById(R.id.progress);
+      //  mprogress.setVisibility(View.GONE);
 
         selectCamera = (Button) findViewById(R.id.selectCamera);
         displayImage = (ImageView) findViewById(R.id.displayImage);
@@ -204,23 +213,53 @@ public class Pop extends Activity {
             @Override
             public void onClick(View v) {
 
+                mprogress.setVisibility(View.VISIBLE);
+
+
+
+
                 String value ="";
 
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         String titleValue = String.valueOf(editTxt1.getText());
-                        Task task = new Task(titleValue,"Milk","1/2/3","1","2/2/3","1","1","1");
-                        Long lastestTaskInserted = appDatabase.taskModel().insertTaskWithId(task);
 
-                        for (int i=0;i<arrayList.size();i++){
+                       Task task = new Task(titleValue,"Milk","1/2/3","1","2/2/3","1","1","1", photobyteDB);
+                    appDatabase.taskModel().insertTaskWithId(task);
+
+
+                  /*    for (int i=0;i<arrayList.size();i++){
                             Subtask sTask = new Subtask(String.valueOf(arrayList.get(i)),lastestTaskInserted.intValue(),0);
                             appDatabase.subTaskModel().insertSubTask(sTask);
-                        }
+                       }*/
 
-                        Log.i("----------",String.valueOf(lastestTaskInserted));
+
+                        dbFetchedbyte = appDatabase.taskModel().fetchTaskById(1).getImage();
+
+                      photofinal = getImage(dbFetchedbyte);
+
+
                     }
                 }).start();
+
+
+
+               // mprogress.setVisibility(View.GONE);
+
+
+
+               // startActivity(new Intent(Pop.this,MainActivity.class));
+
+               displayImage.setImageBitmap(photofinal);
+
+
+
+
+
+
+
+
             }
         });
 
@@ -235,10 +274,10 @@ public class Pop extends Activity {
 
                 DatePickerDialog dialog = new DatePickerDialog(
                         Pop.this,
-                        android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen,
+                        android.R.style.Theme_DeviceDefault_Dialog,
                         mDateSetListener,
                         year, month, day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.GRAY));
                 dialog.show();
             }
         });
@@ -298,6 +337,8 @@ public class Pop extends Activity {
                     displayImage.setImageBitmap(photo);
                     //Uri selectedImage = imageReturnedIntent.getData();
                     // displayImage.setImageURI(selectedImage);
+                    byte[] photobyte = getBytes(photo);
+                    photobyteDB = photobyte;
 
 
                 }
@@ -311,6 +352,19 @@ public class Pop extends Activity {
                 }
                 break;
         }}
+
+
+    // convert from bitmap to byte array
+    public static byte[] getBytes(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
+        return stream.toByteArray();
+    }
+
+    // convert from byte array to bitmap
+    public static Bitmap getImage(byte[] image) {
+        return BitmapFactory.decodeByteArray(image, 0, image.length);
+    }
 
 
 
