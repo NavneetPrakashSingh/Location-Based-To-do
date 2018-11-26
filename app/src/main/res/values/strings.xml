@@ -10,4 +10,6 @@
     <string name="button_save">Save</string>
     <string name="title_activity_pop">Popup</string>
     <string name="check">Save</string>
+    <string name="action_done">DONE</string>
+    <string name="action_delete">DELETE</string>
 </resources>

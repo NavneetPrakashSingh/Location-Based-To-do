@@ -25,31 +25,31 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
-
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 
 public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskViewHolder> {
 
     class TaskViewHolder extends RecyclerView.ViewHolder {
-        private final TextView taskName, taskContent, taskId;
-        public RelativeLayout relativelayout;
+        private final TextView taskName;
+               /* , taskContent;*/
+        public LinearLayout linearLayout;
+        private ProgressBar progressBar;
 
         private TaskViewHolder(View itemView) {
             super(itemView);
-            taskId = itemView.findViewById(R.id.task_id);
+           // taskId = itemView.findViewById(R.id.task_id);
             taskName = itemView.findViewById(R.id.taskName);
-            taskContent = itemView.findViewById(R.id.task_description);
-            relativelayout = itemView.findViewById(R.id.todo_list);
+           /* taskContent = itemView.findViewById(R.id.task_description);*/
+            linearLayout = itemView.findViewById(R.id.todo_list);
+            progressBar = itemView.findViewById(R.id.pbId);
         }
     }
 
@@ -69,21 +69,21 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         final TaskDisplay current = mTasks.get(position);
         //set alternate colors for card view
         if(position % 2 == 0){
-            holder.relativelayout.setBackgroundColor(Color.parseColor("#bdd7e7"));
+            holder.linearLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
         }
         else{
-            holder.relativelayout.setBackgroundColor(Color.parseColor("#08519c"));
+            holder.linearLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
         }
         holder.taskName.setText(current.getTitle());
-        holder.taskContent.setText(current.getContent());
-
-        holder.relativelayout.setOnClickListener(new View.OnClickListener() {
+        /*holder.taskContent.setText(current.getContent());*/
+        holder.progressBar.setProgress(80);
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(holder.relativelayout.getContext(), Update.class);
+                Intent intent = new Intent(holder.linearLayout.getContext(), Update.class);
                 String message = String.valueOf(current.getId());
                 intent.putExtra("id", message);
-                holder.relativelayout.getContext().startActivity(intent);
+                holder.linearLayout.getContext().startActivity(intent);
             }
         });
     }
