@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+/*
         if (requestCode == NEW_TASK_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             Task task = new Task(data.getStringExtra(AddTaskActivity.TITLE), data.getStringExtra(AddTaskActivity.CONTENT),
                     "30/10/2018","1","","","1","");
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                     getApplicationContext(),
                     "Task not saved because it is empty.",
                     Toast.LENGTH_LONG).show();
-        }
+        } */
     }
     private void showNotification() {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, "CHANNEL_ID")
