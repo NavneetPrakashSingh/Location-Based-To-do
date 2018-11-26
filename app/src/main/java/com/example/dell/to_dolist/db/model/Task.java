@@ -45,7 +45,10 @@ public class Task {
     @Nullable
     private String locatonFlag;
 
-    public Task(String title, String content, String creationDate, String priority, String updateDate, String remFlag, String taskStatus, String locatonFlag) {
+  @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    private byte[] image;
+
+   public Task(String title, String content, String creationDate, String priority, String updateDate, String remFlag, String taskStatus, String locatonFlag, byte[] image) {
         this.title = title;
         this.content = content;
         this.creationDate = creationDate;
@@ -55,6 +58,7 @@ public class Task {
         this.remFlag = remFlag;
         this.taskStatus = taskStatus;
         this.locatonFlag = locatonFlag;
+        this.image = image;
     }
 
 
@@ -73,6 +77,14 @@ public class Task {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+    
+     public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     public String getContent() {
