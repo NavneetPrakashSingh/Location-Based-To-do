@@ -12,4 +12,9 @@
     <string name="check">Save</string>
     <string name="action_done">DONE</string>
     <string name="action_delete">DELETE</string>
+	
+	<string name="title_activity_bottom_nav">BottomNav</string>
+    <string name="menu_task">Tasks</string>
+    <string name="menu_AddTask">Add</string>
+    <string name="menu_home">Home</string>
 </resources>

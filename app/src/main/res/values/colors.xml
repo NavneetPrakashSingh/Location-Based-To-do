@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3182bd</color>
+    <color name="colorPrimary">#2F4F4F</color>
     <color name="colorPrimaryDark">#08519c</color>
     <color name="colorCard1">#6baed6</color>
     <color name="colorCard2">#bdd7e7</color>
@@ -8,5 +8,12 @@
     <color name="colorDarkBlue">#34495e</color>
     <color name="text">#eff3ff</color>
     <color name="buttonLabel">#d3d3d3</color>
-    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhite">#FFFFFF</color>							 
+    <color name="colorBlack">#000000</color>
+    <color name="colorMain">#2F4F4F</color>
+    <color name="colorComplement">#48D1CC</color>
+    <color name="colorSecondary">#16BAC5</color>
+    <color name="colorNav">#FF7F50</color>
+    <color name="colorButton">#BDD7E7</color>
+    <color name="colorText">#FFFFF0</color>								   
 </resources>

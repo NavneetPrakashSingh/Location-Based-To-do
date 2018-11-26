@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:tint="@color/colorWhite"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_task"
+        android:icon="@drawable/task_list"
+        android:title="@string/menu_task" />
+
+    <item
+        android:id="@+id/navigation_add_task"
+        android:icon="@drawable/plus_circle_outline"
+        android:title="@string/menu_AddTask" />
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/menu_home" />
+
+</menu>
