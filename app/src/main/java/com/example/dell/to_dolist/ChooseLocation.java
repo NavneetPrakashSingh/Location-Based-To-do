@@ -22,10 +22,11 @@ public class ChooseLocation extends AppCompatActivity {
 
             @Override
             public void onPlaceSelected(Place place) {
-                Intent previousIntent = new Intent(getApplicationContext(),MainActivity.class);
-                previousIntent.putExtra("Location",String.valueOf(place.getName()));
+//                Intent previousIntent = new Intent(getApplicationContext(),MainActivity.class);
+                Log.i("Location coordinates",String.valueOf(place.getLatLng()));
+//                previousIntent.putExtra("Location",String.valueOf(place.getName()));
                 //TODO : Add longitude and latitude here and send it to the previous activity
-                startActivity(previousIntent);
+                finish();
             }
 
             @Override

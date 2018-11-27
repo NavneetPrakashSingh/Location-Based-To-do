@@ -1,6 +1,7 @@
 package com.example.dell.to_dolist;
 
 import android.arch.persistence.room.Room;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -45,26 +46,32 @@ public class Update extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        titleText = findViewById(R.id.title_text);
-                        titleText.setTextSize(20);
-                        Task taskDetails = appDatabase.taskModel().fetchTaskById(id);
-                        titleText.setText(taskDetails.getTitle());
-                        Log.i("0000000000000",String.valueOf(taskDetails.getContent()));
+                        try{
+                            titleText = findViewById(R.id.title_text);
+                            titleText.setTextSize(20);
+                            Task taskDetails = appDatabase.taskModel().fetchTaskById(id);
+                            titleText.setText(taskDetails.getTitle());
+                            Log.i("0000000000000",String.valueOf(taskDetails.getContent()));
 
 
-                        linearMain = findViewById(R.id.linear_main);
-                        ArrayList<String> al = new ArrayList<String>();
-                        al.add(taskDetails.getContent());
-                        al.add("Banana");
+                            linearMain = findViewById(R.id.linear_main);
+                            ArrayList<String> al = new ArrayList<String>();
+                            al.add(taskDetails.getContent());
+                            al.add("Banana");
 
-                        for (int i = 0;i<al.size();i++){
-                            checkBox = new CheckBox(Update.this);
-                            checkBox.setTextSize(20);
-                            checkBox.setId(i);
-                            checkBox.setText(al.get(i));
-                            checkBox.setOnClickListener(getOnSelectedItem(checkBox));
-                            linearMain.addView(checkBox);
+                            for (int i = 0;i<al.size();i++){
+                                checkBox = new CheckBox(Update.this);
+                                checkBox.setTextSize(20);
+                                checkBox.setId(i);
+                                checkBox.setText(al.get(i));
+                                checkBox.setOnClickListener(getOnSelectedItem(checkBox));
+                                linearMain.addView(checkBox);
+                            }
+
+                        }catch (Exception ex){
+
                         }
+
 
 //                        Toast.makeText(getApplicationContext(),String.valueOf(taskDetails),Toast.LENGTH_SHORT).show();
                     }
@@ -108,6 +115,11 @@ public class Update extends AppCompatActivity {
                     }
                 }).start();
                 Toast.makeText(Update.this,"Data deleted for id"+id,Toast.LENGTH_SHORT).show();
+
+            case R.id.action_add_location:
+                startActivity(new Intent(this,ChooseLocation.class));
+                return true;
+
 
             case R.id.action_save:
                 Toast.makeText(Update.this,"Data Saved For id"+id,Toast.LENGTH_SHORT).show();
