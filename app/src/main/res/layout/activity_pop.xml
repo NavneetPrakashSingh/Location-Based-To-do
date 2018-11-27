@@ -11,6 +11,24 @@
     tools:context=".Pop">
 
 
+    
+    <ProgressBar
+
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:visibility="invisible"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/text"
+
+        />
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
