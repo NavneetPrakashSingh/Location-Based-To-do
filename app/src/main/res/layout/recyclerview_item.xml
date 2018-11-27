@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:text="@string/action_delete"
 			android:textColor="@color/colorMain"						
-			android:textSize="@color/activity_button_text"			   
+			android:textSize="@dimen/activity_button_text"			   
 			android:textStyle="bold"						
             android:theme="@style/PrimaryFlatButton" />
     </LinearLayout>
