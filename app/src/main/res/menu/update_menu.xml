@@ -18,10 +18,9 @@
         app:showAsAction="always"/>
 
     <item
-        android:id="@+id/action_location"
+        android:id="@+id/action_add_location"
         android:icon="@drawable/ic_add_location_white_24dp"
-        android:title="@string/check"
+        android:title="Delete"
         app:showAsAction="always"/>
-
 
 </menu>

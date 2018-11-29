@@ -18,6 +18,12 @@ import com.google.android.gms.tasks.Task;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
+/*
+* Sample test case:
+* Input : source, context
+* Output: returns longitude and latitude of current location
+* */
+
 public class Location extends AppCompatActivity {
 
     private FusedLocationProviderClient mFusedLocationClient;

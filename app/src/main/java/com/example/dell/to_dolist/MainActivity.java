@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 //        TextView txtView=findViewById(R.task_id.txtView);
         //populateDb();
        // fetchData();
+        showNotification();
 
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
@@ -102,8 +103,9 @@ public class MainActivity extends AppCompatActivity {
     private void showNotification() {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, "CHANNEL_ID")
                 .setSmallIcon(R.drawable.ic_launcher_background)
-                .setContentTitle("To-Do")
-                .setContentText("Wallmart")
+                .setContentTitle("Wallmart Reminder")
+                .setContentText("Milk")
+                .setContentText("Banana")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(1, mBuilder.build());
