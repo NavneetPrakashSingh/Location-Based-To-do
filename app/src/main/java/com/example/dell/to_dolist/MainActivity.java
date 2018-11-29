@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        showNotification();
 
 
     }
@@ -102,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
     private void showNotification() {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, "CHANNEL_ID")
                 .setSmallIcon(R.drawable.ic_launcher_background)
-                .setContentTitle("To-do List")
-                .setContentText("Pick up groceries")
+                .setContentTitle("To-Do")
+                .setContentText("Wallmart")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(1, mBuilder.build());
