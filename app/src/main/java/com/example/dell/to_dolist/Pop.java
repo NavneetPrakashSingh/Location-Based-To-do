@@ -70,6 +70,7 @@ public class Pop extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pop);
+        getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3F51B5")));
 
 
         final EditText editTxt1 = findViewById(R.id.editText);
@@ -125,17 +126,6 @@ public class Pop extends Activity {
         });
 
 
-
-
-
-
-
-
-
-
-
-
-
         adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, arrayList);
 
         list.setAdapter(adapter);
@@ -146,7 +136,7 @@ public class Pop extends Activity {
         int width = metric.widthPixels;
         int height = metric.heightPixels;
 
-        getWindow().setLayout((int) (width * 0.7), (int) (height * 0.7));
+      //  getWindow().setLayout((int) (width * 0.7), (int) (height * 0.7));
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -199,13 +189,9 @@ public class Pop extends Activity {
 
                     }
                 }
-
                 positioncheck.clear();
 
                 adapter.notifyDataSetChanged();
-
-
-
             }
         });
 
@@ -235,9 +221,9 @@ public class Pop extends Activity {
                        }*/
 
 
-                        dbFetchedbyte = appDatabase.taskModel().fetchTaskById(1).getImage();
+                      //  dbFetchedbyte = appDatabase.taskModel().fetchTaskById(1).getImage();
 
-                      photofinal = getImage(dbFetchedbyte);
+                    //  photofinal = getImage(dbFetchedbyte);
 
 
                     }
@@ -249,20 +235,12 @@ public class Pop extends Activity {
 
 
 
-               // startActivity(new Intent(Pop.this,MainActivity.class));
+               startActivity(new Intent(Pop.this,MainActivity.class));
 
-               displayImage.setImageBitmap(photofinal);
-
-
-
-
-
-
-
+               //displayImage.setImageBitmap(photofinal);
 
             }
         });
-
 
         calender.setOnClickListener(new View.OnClickListener() {
             @Override

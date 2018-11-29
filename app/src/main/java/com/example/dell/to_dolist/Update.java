@@ -12,30 +12,33 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.dell.to_dolist.db.model.Task;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
-public class Update extends AppCompatActivity {
+public  class Update extends AppCompatActivity {
 
     private static final String DATABASE_NAME = "todo_database";
-    private AppDatabase appDatabase = Room.databaseBuilder(this,AppDatabase.class,DATABASE_NAME).fallbackToDestructiveMigration().build();
+    private  AppDatabase appDatabase = Room.databaseBuilder(this,AppDatabase.class,DATABASE_NAME).fallbackToDestructiveMigration().build();
 
     public int id =0;
 
     LinearLayout linearMain;
     CheckBox checkBox;
     EditText titleText;
-
-
+    ImageView displayImage;
+    private byte[] dbFetchedbyte;
+    private Bitmap photofinal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
-
+        displayImage = findViewById(R.id.displayImageInUpdate);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle getId = getIntent().getExtras();
@@ -74,11 +77,27 @@ public class Update extends AppCompatActivity {
 
 
 //                        Toast.makeText(getApplicationContext(),String.valueOf(taskDetails),Toast.LENGTH_SHORT).show();
+                        }catch(Exception ex){}
+
                     }
                 }).start();
 
             }
         }
+
+
+    }
+
+    // convert from bitmap to byte array
+    public static byte[] getBytes(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
+        return stream.toByteArray();
+    }
+
+    // convert from byte array to bitmap
+    public static Bitmap getImage(byte[] image) {
+        return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
 
     View.OnClickListener getOnSelectedItem(final Button button) {
@@ -90,6 +109,15 @@ public class Update extends AppCompatActivity {
         };
     }
 
+  /*  public  void deleteTask(int id){
+       final int deleteId= id;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                appDatabase.taskModel().deleteTaskById(deleteId);
+            }
+        }).start();
+    }*/
     @Override
     public boolean onSupportNavigateUp(){
         finish();
@@ -114,7 +142,7 @@ public class Update extends AppCompatActivity {
                         appDatabase.taskModel().deleteTaskById(id);
                     }
                 }).start();
-                Toast.makeText(Update.this,"Data deleted for id"+id,Toast.LENGTH_SHORT).show();
+               // Toast.makeText(Update.this,"Data deleted for id"+id,Toast.LENGTH_SHORT).show();
 
             case R.id.action_add_location:
                 startActivity(new Intent(this,ChooseLocation.class));
@@ -122,12 +150,10 @@ public class Update extends AppCompatActivity {
 
 
             case R.id.action_save:
-                Toast.makeText(Update.this,"Data Saved For id"+id,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Update.this,"Data Saved For id"+id,Toast.LENGTH_SHORT).show();
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-
-
                     }
                 });
 
@@ -137,5 +163,8 @@ public class Update extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
+
     }
+
+
 }

@@ -46,7 +46,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Pop"
-            android:label="Popup"
+            android:label="Add Task"
             android:theme="@style/Popup" />
         <activity android:name=".Update"></activity>
     </application>

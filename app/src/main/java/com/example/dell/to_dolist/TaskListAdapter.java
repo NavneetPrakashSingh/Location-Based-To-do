@@ -21,6 +21,7 @@ package com.example.dell.to_dolist;
  * limitations under the License.
  */
 
+import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -28,6 +29,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -42,7 +44,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
                /* , taskContent;*/
         public LinearLayout linearLayout;
         private ProgressBar progressBar;
-
+        private Button deleteButton;
         private TaskViewHolder(View itemView) {
             super(itemView);
            // taskId = itemView.findViewById(R.id.task_id);
@@ -50,6 +52,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
            /* taskContent = itemView.findViewById(R.id.task_description);*/
             linearLayout = itemView.findViewById(R.id.todo_list);
             progressBar = itemView.findViewById(R.id.pbId);
+            deleteButton = itemView.findViewById(R.id.deleteButton);
         }
     }
 
@@ -75,8 +78,22 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
             holder.linearLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
         }
         holder.taskName.setText(current.getTitle());
+
         /*holder.taskContent.setText(current.getContent());*/
-        holder.progressBar.setProgress(80);
+       holder.progressBar.setProgress(1);
+        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent intent = new Intent(MainActivity.this, AddTaskActivity.class);
+                //startActivityForResult(intent, NEW_TASK_ACTIVITY_REQUEST_CODE);
+
+               // startActivity(new Intent(MainActivity.this,Pop.class));
+
+
+        Update update = new Update();
+        /*update.deleteTask(current.getId());*/
+            }
+        });
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
