@@ -109,7 +109,7 @@ public  class Update extends AppCompatActivity {
         };
     }
 
-  /*  public  void deleteTask(int id){
+    public  void deleteTask(int id){
        final int deleteId= id;
         new Thread(new Runnable() {
             @Override
@@ -117,7 +117,7 @@ public  class Update extends AppCompatActivity {
                 appDatabase.taskModel().deleteTaskById(deleteId);
             }
         }).start();
-    }*/
+    }
     @Override
     public boolean onSupportNavigateUp(){
         finish();

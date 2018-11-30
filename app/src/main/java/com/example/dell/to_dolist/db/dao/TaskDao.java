@@ -2,6 +2,7 @@ package com.example.dell.to_dolist.db.dao;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
@@ -23,6 +24,9 @@ public interface TaskDao {
     @Query("DELETE FROM task_table")
     void deleteAllTasks();
 
+    @Delete
+    void deleteTask(Task task);
+
     @Query("DELETE FROM task_table where task_id = :taskId")
     void deleteTaskById(int taskId);
 
@@ -38,4 +42,6 @@ public interface TaskDao {
     @Query("SELECT * FROM task_table WHERE task_id = :taskId")
     Task fetchTaskById(int taskId);
 
+    @Query("SELECT * from task_table LIMIT 1")
+    Task[] getAnyTask();
 }

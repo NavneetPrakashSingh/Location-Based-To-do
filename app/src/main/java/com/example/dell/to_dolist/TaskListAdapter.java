@@ -21,7 +21,6 @@ package com.example.dell.to_dolist;
  * limitations under the License.
  */
 
-import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -38,7 +37,7 @@ import java.util.List;
 
 
 public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskViewHolder> {
-
+    private TaskRepository mRepository;
     class TaskViewHolder extends RecyclerView.ViewHolder {
         private final TextView taskName;
                /* , taskContent;*/
@@ -69,7 +68,8 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
     @Override
     public void onBindViewHolder(final TaskViewHolder holder, final int position) {
-        final TaskDisplay current = mTasks.get(position);
+
+       final TaskDisplay current = mTasks.get(position);
         //set alternate colors for card view
         if(position % 2 == 0){
             holder.linearLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
@@ -81,7 +81,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
         /*holder.taskContent.setText(current.getContent());*/
        holder.progressBar.setProgress(1);
-        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+    /*   holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Intent intent = new Intent(MainActivity.this, AddTaskActivity.class);
@@ -89,11 +89,10 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
                // startActivity(new Intent(MainActivity.this,Pop.class));
 
-
-        Update update = new Update();
-        /*update.deleteTask(current.getId());*/
             }
-        });
+        });*/
+
+
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,6 +114,9 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         if (mTasks != null)
             return mTasks.size();
         else return 0;
+    }
+    public TaskDisplay getTaskAtPosition (int position) {
+        return mTasks.get(position);
     }
 }
 
