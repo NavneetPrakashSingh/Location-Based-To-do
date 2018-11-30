@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#08519c</color>
+   <!-- <color name="colorPrimary">#3F51B5</color>-->
+   <!-- <color name="colorPrimaryDark">#08519c</color>-->
     <color name="colorCard1">#6baed6</color>
     <color name="colorCard2">#bdd7e7</color>
-    <color name="colorAccent">#FF4081</color>
+   <!-- <color name="colorAccent">#FF4081</color>-->
     <color name="colorDarkBlue">#34495e</color>
     <color name="text">#eff3ff</color>
     <color name="buttonLabel">#d3d3d3</color>
@@ -15,5 +15,13 @@
     <color name="colorSecondary">#16BAC5</color>
     <color name="colorNav">#FF7F50</color>
     <color name="colorButton">#BDD7E7</color>
-    <color name="colorText">#FFFFF0</color>								   
+    <color name="colorText">#FFFFF0</color>
+
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryLight">#64b5f6</color>
+    <color name="colorPrimaryDark">#1976D2</color>
+    <color name="colorAccent">#FFFF9800</color>
+    <color name="colorTextPrimary">@android:color/white</color>
+    <color name="colorScreenBackground">#fff3e0</color>
+    <color name="colorTextHint">#E0E0E0</color>
 </resources>
