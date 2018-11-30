@@ -74,4 +74,43 @@ public class TaskRepository {
             return null;
         }
     }
+    public void deleteAll()  {
+        new deleteAllTasksAsyncTask(taskDao).execute();
+    }
+
+    private static class deleteAllTasksAsyncTask extends AsyncTask<Void, Void, Void> {
+        private TaskDao mAsyncTaskDao;
+
+        deleteAllTasksAsyncTask(TaskDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            mAsyncTaskDao.deleteAllTasks();
+            return null;
+        }
+    }
+
+
+
+     public void deleteTask(TaskDisplay task)  {
+    new deleteTaskAsyncTask(taskDao).execute(task);
+ }
+
+    private static class deleteTaskAsyncTask extends AsyncTask<TaskDisplay, Void, Void> {
+    private TaskDao mAsyncTaskDao;
+
+        deleteTaskAsyncTask(TaskDao dao) {
+        mAsyncTaskDao = dao;
+    }
+
+    @Override
+    protected Void doInBackground(final TaskDisplay... params) {
+        mAsyncTaskDao.deleteTaskById(params[0].getId());
+        return null;
+    }
+ }
+
+
 }

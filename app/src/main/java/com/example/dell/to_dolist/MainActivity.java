@@ -17,7 +17,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle getId = getIntent().getExtras();
+
         setContentView(R.layout.activity_main);
         mDb = AppDatabase.getDatabase(getApplicationContext());
 //        TextView txtView=findViewById(R.task_id.txtView);
@@ -65,8 +69,33 @@ public class MainActivity extends AppCompatActivity {
                 adapter.setTasks(tasks);
             }
         });
+        ItemTouchHelper helper = new ItemTouchHelper(
+                new ItemTouchHelper.SimpleCallback(0,
+                        ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                    @Override
+                    public boolean onMove(RecyclerView recyclerView,
+                                          RecyclerView.ViewHolder viewHolder,
+                                          RecyclerView.ViewHolder target) {
+                        return false;
+                    }
 
-     //Changed fab to add
+                    @Override
+                    public void onSwiped(RecyclerView.ViewHolder viewHolder,
+                                         int direction) {
+                        int position = viewHolder.getAdapterPosition();
+                        TaskDisplay myTask = adapter.getTaskAtPosition(position);
+                        Toast.makeText(MainActivity.this, "Deleting " +
+                                myTask.getTitle(), Toast.LENGTH_LONG).show();
+
+                        // Delete the word
+                        mTaskViewModel.deleteTask(myTask);
+                    }
+                });
+
+        helper.attachToRecyclerView(recyclerView);
+
+
+
 
         add = (FloatingActionButton) findViewById(R.id.add);
         add.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +113,9 @@ public class MainActivity extends AppCompatActivity {
         showNotification();
 
 
+
     }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 /*
@@ -113,6 +144,25 @@ public class MainActivity extends AppCompatActivity {
         AppDatabase.destroyInstance();
         super.onDestroy();
     }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.clear_data) {
+            // Add a toast just for confirmation
+            Toast.makeText(this, "Clearing the data...",
+                    Toast.LENGTH_SHORT).show();
+
+            // Delete the existing data
+            mTaskViewModel.deleteAll();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
  /*Commented by Sharon
 
