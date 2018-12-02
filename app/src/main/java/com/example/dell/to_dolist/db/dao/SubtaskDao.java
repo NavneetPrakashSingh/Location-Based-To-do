@@ -18,7 +18,7 @@ public interface SubtaskDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertSubTask(Subtask subtask);
 
-    @Query("select * from subtask_table where maintask_id=:mainTaskKey")
-    List<Subtask> loadAllSubTasks(int mainTaskKey);
+    @Query("select * from subtask_table where maintask_id=:maintask_id")
+    List<Subtask> loadAllSubTasks(int maintask_id);
 }
 

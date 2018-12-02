@@ -38,11 +38,21 @@ public class Subtask {
         this.id = task_id;
     }
 
-    public Integer getStatus(){return status;}
-    public void setStatus(Integer _status){this.status = _status;}
+    public int getMainTaskKey() {
+        return mainTaskKey;
+    }
 
-    public Integer getMainTaskKey(){return status;}
-    public void setMainTaskKey(Integer _status){this.status = _status;}
+    public void setMainTaskKey(int mainTaskKey) {
+        this.mainTaskKey = mainTaskKey;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     public String getTitle(){return title;}
     public void setTitle(String _title){this.title = _title;}

@@ -219,8 +219,13 @@ public class Pop extends Activity {
                         long id=appDatabase.taskModel().insertTaskWithId(task);
                         Log.d("*****************", "taskID: "+id); //Jessica
                         long subId;
+                        int k;
                         for (int i=0;i<arrayList.size();i++) {
-                            Subtask sTask = new Subtask(String.valueOf(arrayList.get(i)), (int) id, 0);
+
+                            k=(int) id;
+                            Log.d("value", "run: "+k);
+                            //Subtask sTask = new Subtask(String.valueOf(arrayList.get(i)), k, 0);
+                            Subtask sTask = new Subtask(arrayList.get(i),k,0);
                             subId=appDatabase.subTaskModel().insertSubTask(sTask);
                             Log.d("*****************", "subtaskID: "+subId); //Jessica
                         }

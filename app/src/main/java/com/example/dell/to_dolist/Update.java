@@ -63,9 +63,11 @@ public  class Update extends AppCompatActivity {
                             ArrayList<String> al = new ArrayList<String>();
                             List<Subtask> subtasks=appDatabase.subTaskModel().loadAllSubTasks(id);
                             // al.add(taskDetails.getContent());
+                            Log.i("0000000000000 :size",""+subtasks.size());
                             for(int i=0;i<subtasks.size();i++) //Jessica
                             {
                                 al.add(subtasks.get(i).getTitle());
+                                Log.i("0000000000000 :subtask",""+subtasks.get(i).getTitle()+" "+subtasks.get(i).getStatus()+" "+subtasks.get(i).getMainTaskKey());
                             }
                             for (int i = 0;i<al.size();i++){
                                 checkBox = new CheckBox(Update.this);
