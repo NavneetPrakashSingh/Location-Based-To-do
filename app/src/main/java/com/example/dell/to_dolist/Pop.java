@@ -216,8 +216,14 @@ public class Pop extends Activity {
                         String titleValue = String.valueOf(editTxt1.getText());
 
                        Task task = new Task(titleValue,"Milk","1/2/3","1","2/2/3","1","1","1", photobyteDB);
-                    appDatabase.taskModel().insertTaskWithId(task);
-
+                        long id=appDatabase.taskModel().insertTaskWithId(task);
+                        Log.d("*****************", "taskID: "+id); //Jessica
+                        long subId;
+                        for (int i=0;i<arrayList.size();i++) {
+                            Subtask sTask = new Subtask(String.valueOf(arrayList.get(i)), (int) id, 0);
+                            subId=appDatabase.subTaskModel().insertSubTask(sTask);
+                            Log.d("*****************", "subtaskID: "+subId); //Jessica
+                        }
 
                   /*    for (int i=0;i<arrayList.size();i++){
                             Subtask sTask = new Subtask(String.valueOf(arrayList.get(i)),lastestTaskInserted.intValue(),0);

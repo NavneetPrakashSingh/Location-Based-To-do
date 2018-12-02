@@ -2,6 +2,8 @@ package com.example.dell.to_dolist;
 
 import android.arch.persistence.room.Room;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,10 +18,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.dell.to_dolist.db.model.Subtask;
 import com.example.dell.to_dolist.db.model.Task;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public  class Update extends AppCompatActivity {
 
@@ -54,14 +58,15 @@ public  class Update extends AppCompatActivity {
                             titleText.setTextSize(20);
                             Task taskDetails = appDatabase.taskModel().fetchTaskById(id);
                             titleText.setText(taskDetails.getTitle());
-                            Log.i("0000000000000",String.valueOf(taskDetails.getContent()));
-
-
+                            Log.i("0000000000000",""+id);
                             linearMain = findViewById(R.id.linear_main);
                             ArrayList<String> al = new ArrayList<String>();
-                            al.add(taskDetails.getContent());
-                            al.add("Banana");
-
+                            List<Subtask> subtasks=appDatabase.subTaskModel().loadAllSubTasks(id);
+                            // al.add(taskDetails.getContent());
+                            for(int i=0;i<subtasks.size();i++) //Jessica
+                            {
+                                al.add(subtasks.get(i).getTitle());
+                            }
                             for (int i = 0;i<al.size();i++){
                                 checkBox = new CheckBox(Update.this);
                                 checkBox.setTextSize(20);
@@ -70,12 +75,10 @@ public  class Update extends AppCompatActivity {
                                 checkBox.setOnClickListener(getOnSelectedItem(checkBox));
                                 linearMain.addView(checkBox);
                             }
+                            dbFetchedbyte = appDatabase.taskModel().fetchTaskById(id).getImage();
 
-                        }catch (Exception ex){
-
-                        }
-
-
+                            photofinal = getImage(dbFetchedbyte);
+                            displayImage.setImageBitmap(photofinal);
 //                        Toast.makeText(getApplicationContext(),String.valueOf(taskDetails),Toast.LENGTH_SHORT).show();
                         }catch(Exception ex){}
 
@@ -87,7 +90,6 @@ public  class Update extends AppCompatActivity {
 
 
     }
-
     // convert from bitmap to byte array
     public static byte[] getBytes(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
