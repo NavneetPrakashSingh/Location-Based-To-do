@@ -15,13 +15,11 @@ Contact email: jessica.castelino@dal.ca
 Kindly perform the below steps to access the code:
 
 ```
-1) git clone https://git.cs.dal.ca/castelino/To-Do-List
-2) Import the code in Android Studio
-3) 
-4) Execute Program2.py which fetches the test data from Elasticsearch DB and predicts the sentiments based on the model created.
+1) Run the command git clone https://git.cs.dal.ca/castelino/To-Do-List.
+2) Import the code in Android Studio.
+3) Sync the gradle.
+4) Run the app on the emulator or the mobile phone.
 ```
-
-
 
 # Project Summary
 To-Do list in an application that provides an easy way in managing day-to-day tasks. It not only reminds the user of its pending tasks, but also lets you prioritize them. To-Do app is targeted specifically for students. It helps students to be more productive and manage their time efficiently. The students can make grocery lists, write notes, set reminders, capture pictures and save it. The app allows students to set reminders based on location and automatically reminds them when they are near the location. Apart from creating a list of tasks, students can sort tasks based on priority and date.Each task can be tagged to a location. This feature provides the user with location-based notification when user is near that location. Task progress of each task is shown based on list items pending. Additionally, we can give voice inputs to further save the time it takes to make these lists and plan the day. All in all, the app aids in distributing time and efforts wisely.
