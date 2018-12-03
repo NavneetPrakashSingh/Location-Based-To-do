@@ -3,16 +3,24 @@
 
 Group Members: 
 
-- Jessica Castelino 	
-- Navneet Prakash Singh B00810744	
-- Shubham Narang
+- Jessica Castelino  B00804805	
+- Navneet Singh      B00810744	
+- Shubham Narang     B00810159
 - Sharon Alva        B00813350 	
 - Utsav Soni         B00812689
 - Jismy Johnson      B00813344
 
 Contact email: jessica.castelino@dal.ca
 
-The repository contains the code as well as project related documents.  
+Kindly perform the below steps to access the code:
+
+```
+1) git clone https://git.cs.dal.ca/castelino/To-Do-List
+2) Import the code in Android Studio
+3) 
+4) Execute Program2.py which fetches the test data from Elasticsearch DB and predicts the sentiments based on the model created.
+```
+
 
 
 # Project Summary
