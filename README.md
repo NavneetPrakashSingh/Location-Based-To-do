@@ -12,13 +12,13 @@ Group Members:
 
 Contact email: jessica.castelino@dal.ca
 
-Kindly perform the below steps to access the code:
+Kindly perform the below steps to access and run the code:
 
 ```
-1) Run the command git clone https://git.cs.dal.ca/castelino/To-Do-List.
+1) Run the command 'git clone https://git.cs.dal.ca/castelino/To-Do-List'.
 2) Import the code in Android Studio.
 3) Ensure that the gradle version denoted in build.gradle file is 3.1.4.
-4) Click the button 'Sync Project With Gradle Files' or go to Tools -> Android -> Sync Project with Gradle Files
+4) Click the button 'Sync Project With Gradle Files' or go to Tools -> Android -> Sync Project with Gradle Files.
 5) Run the app on the emulator or the mobile phone.
 
 ```
