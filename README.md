@@ -12,14 +12,10 @@ Group Members:
 
 Contact email: jessica.castelino@dal.ca
 
-Kindly perform the below steps to access and run the code:
+The code will be available on github on the link given below:
 
 ```
-1) Run the command 'git clone https://git.cs.dal.ca/castelino/To-Do-List'.
-2) Import the code in Android Studio.
-3) Ensure that the gradle version denoted in build.gradle file is 3.1.4.
-4) Click the button 'Sync Project With Gradle Files' or go to Tools -> Android -> Sync Project with Gradle Files.
-5) Run the app on the emulator or the mobile phone.
+https://git.cs.dal.ca/castelino/To-Do-List
 
 ```
 
@@ -31,6 +27,18 @@ To-Do list in an application that provides an easy way in managing day-to-day ta
 List of all the libraries used in the project
 
 **v7 Support Libraries:** CardView package of this library was used for displaying tasks list. Source [here](https://developer.android.com/topic/libraries/support-library/packages)
+
+## Installation Notes
+Kindly perform the below steps to run the code:
+
+```
+1) Run the command 'git clone https://git.cs.dal.ca/castelino/To-Do-List'.
+2) Import the code in Android Studio.
+3) Ensure that the gradle version denoted in build.gradle file is 3.1.4.
+4) Click the button 'Sync Project With Gradle Files' or go to Tools -> Android -> Sync Project with Gradle Files.
+5) Run the app on the emulator or the mobile phone.
+
+```
 
 ## Project Status
 We have completed around 30% of the project. We have implemented the backend functionalities and some of the UI implementation as well. Status of the functionalities are listed below.
