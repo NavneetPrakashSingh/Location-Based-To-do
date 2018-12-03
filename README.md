@@ -28,6 +28,10 @@ List of all the libraries used in the project
 
 **v7 Support Libraries:** CardView package of this library was used for displaying tasks list. Source [here](https://developer.android.com/topic/libraries/support-library/packages)
 
+**Google Play Services** Inorder to run certain services like taking location of the user in the background is done using Google play services. Source [here](https://developers.google.com/android/guides/setup)
+
+**Google Play Location** Google play location library is used to retrieve current location of the user. Source [here](https://developer.android.com/guide/topics/location/)
+
 ## Installation Notes
 Kindly perform the below steps to run the code:
 
@@ -94,22 +98,20 @@ To read and render it back the image from BLOB storage, we reversed the process 
 
 
 ## Project Status
-We have completed 90% of the project implementation. We are polishing the UI and resolving bugs that have been discovered as a part of our testing.The status of the functionalities are listed below:
+We have completed around 30% of the project. We have implemented the backend functionalities and some of the UI implementation as well. Status of the functionalities are listed below.
 
 #### Minimum Functionality
-- Feature 1: Create a task. and remove tasks in list (Completed)
-- Feature 2: Update a task. (Completed)
-- Feature 3: View a task. (Completed)
-- Feature 4: Delete a task. (Completed)
+- Feature 1 Create, update and remove tasks in list (Partially Implemented)
+- Feature 2 Task sorting (Partially Implemented)
+- Feature 3 Support form (Not Implemented)
 
 #### Expected Functionality
-- Feature 1: Ping to-do list to a particular location. (Completed)
-- Feature 2: Notification when the user is near the location. (Completed)
-- Feature 3: Adding subtask to main task. (Completed)
+- Feature 1 Notification Alert (Completed)
+- Feature 2 Location tagging for task (Completed)
 
 #### Bonus Functionality
-- Feature 1: Add images to their to-do task. (Completed)
-- Feature 2: Task visualization. (Completed)
+- Feature 1 Task progress visualization (Not Implemented)
+- Feature 2 Image addition in list (Not Implemented)
 
 ## Sources
 [1] Developers, G. (2018). App permissions best practices | Android Developers. Retrieved from https://developer.android.com/training/permissions/usage-notes<br/>
