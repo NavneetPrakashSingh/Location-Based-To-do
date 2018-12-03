@@ -30,7 +30,7 @@ List of all the libraries used in the project
 
 **Google Play Services** Inorder to run certain services like taking location of the user in the background is done using Google play services. Source [here](https://developers.google.com/android/guides/setup)
 
-**Google Play Location** Google play location library is used to retrieve current location of the user. Source [here](https://developer.android.com/guide/topics/location/)
+**Room Persistence** Room database library is used create and store database within the device of the user. Source [here](https://developer.android.com/guide/topics/location/)
 
 ## Installation Notes
 Kindly perform the below steps to run the code:
@@ -68,6 +68,21 @@ To read and render it back the image from BLOB storage, we reversed the process 
 
 // Source: Wikipedia Java [1]
 ```
+
+**Problem 2: Code abstraction to access same feature from multiple places **
+ We had a major issue of code present in multiple places within the applicaiton. To solve this problem we had restructured our code and used classes to access it from multiple places providing proper abstraction. Consider the code to access location, which is used when the app launches and when the app is in backgruond to get the current location of the user.
+```
+// Sample input : source from where it is called
+// Sample output: returns the logitude and latitude of the user
+
+            @Override
+            public String onPlaceSelected(String source) {
+                return place.getLatLang();
+            }
+            
+```
+
+
 ## Feature Section
 1. **Add new task**  
 &nbsp;The application allows users to add a new task such as “Grocery”. This task can have multiple sub-tasks such as “Milk, bread, cheese” added under Grocery. The task title and its sub-task elements are stored in the database. 
