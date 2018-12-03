@@ -39,6 +39,32 @@ Kindly perform the below steps to run the code:
 5) Run the app on the emulator or the mobile phone.
 
 ```
+## Code Examples
+
+**Problem 1: We needed a method to convert BitMap image file to byte array and vice versa **
+
+ We basically converted the image file (BitMap) in to byte array streams and then stored it in Room column whose data type is BLOB (Room database supports it).
+```
+// convert  bitmap image file to byte array
+    public static byte[] getBytes(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
+        return stream.toByteArray();
+    }
+
+// Source: Wikipedia Java [1]
+```
+To read and render it back the image from BLOB storage, we reversed the process - that is reading the byte streams from BLOB storage of Room database and convert in to a BitMap.
+
+```
+// convert from byte array to bitmap
+    public static Bitmap getImage(byte[] image) {
+        return BitmapFactory.decodeByteArray(image, 0, image.length);
+    }
+
+// Source: Wikipedia Java [1]
+```
+
 
 ## Project Status
 We have completed around 30% of the project. We have implemented the backend functionalities and some of the UI implementation as well. Status of the functionalities are listed below.
