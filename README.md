@@ -65,11 +65,10 @@ To read and render it back the image from BLOB storage, we reversed the process 
 // Source: Wikipedia Java [1]
 ```
 ## Feature Section
-1) Add new task
-The application allows users to add a new task such as “Grocery”. This task can have multiple sub-tasks such as “Milk, bread, cheese” added under Grocery. The task title and its sub-task elements are stored in the database. 
+1. **Add new task**  
+&nbsp;&nbsp;&nbsp;&nbsp;The application allows users to add a new task such as “Grocery”. This task can have multiple sub-tasks such as “Milk, bread, cheese” added under Grocery. The task title and its sub-task elements are stored in the database. 
 
-2) View tasks on home screen
-Every task created will be displayed on the home screen of the application. The order of display is as per the creation time. Instead of displaying all the subtasks at home screen, only the task title is displayed. This removes clutter on the home screen. 
+2) View tasks on home screen - Every task created will be displayed on the home screen of the application. The order of display is as per the creation time. Instead of displaying all the subtasks at home screen, only the task title is displayed. This removes clutter on the home screen. 
 
 3) Checking/unchecking task
 The application allows the user to check off the task is complete. Once the task is complete, a user may want to either check or uncheck the task. This gives the user an idea of how many tasks are completed. It helps the user to focus on other pending activities. 
