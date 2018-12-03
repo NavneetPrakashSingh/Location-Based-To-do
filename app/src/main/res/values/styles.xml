@@ -33,6 +33,11 @@
         <item name="android:paddingLeft">8dp</item>
     </style>
 
+   <!-- https://medium.com/@Gryzor/styling-textinputlayout-and-textinputedittext-on-android-9ab786bef7af-->
+    <style name="MyAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
     <!-- Style for a category in the editor -->
     <style name="CategoryStyle">
         <item name="android:layout_height">wrap_content</item>
@@ -66,5 +71,13 @@
             @style/Widget.AppCompat.Button.Borderless.Colored
         </item>
         <item name="colorAccent">#FFAB40</item>
+    </style>
+
+
+    <style name="AppFullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 </resources>

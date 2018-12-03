@@ -16,16 +16,10 @@ public class Task {
     @NonNull
     private String title;
 
-    @ColumnInfo(name = "task_content")
-    @Nullable
-    private String content;
-
     @ColumnInfo(name = "creation_date")
     @Nullable
     private String creationDate;
 
-    /*@ColumnInfo(name = "taskName")
-    private String taskName;*/
     @ColumnInfo(name = "priority")
     @Nullable
     private String priority;
@@ -48,11 +42,9 @@ public class Task {
   @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     private byte[] image;
 
-   public Task(String title, String content, String creationDate, String priority, String updateDate, String remFlag, String taskStatus, String locatonFlag, byte[] image) {
+   public Task(String title, String creationDate, String priority, String updateDate, String remFlag, String taskStatus, String locatonFlag, byte[] image) {
         this.title = title;
-        this.content = content;
         this.creationDate = creationDate;
-        /*this.taskName = taskName;*/
         this.priority = priority;
         this.updateDate = updateDate;
         this.remFlag = remFlag;
@@ -87,14 +79,6 @@ public class Task {
         this.image = image;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
     public String getCreationDate() {
         return creationDate;
     }
@@ -102,14 +86,6 @@ public class Task {
     public void setCreationDate(String creationDate) {
         this.creationDate = creationDate;
     }
-/*
-    public String getTaskName() {
-        return taskName;
-    }
-
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
-    }*/
 
     public String getPriority() {
         return priority;

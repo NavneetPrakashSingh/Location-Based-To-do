@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_add_date"
+        android:icon="@drawable/ic_icons_calendar_white"
+        android:title="@string/check"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_add_location1"
+        android:icon="@drawable/ic_add_location_white_24dp"
+        android:title="Add Location"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_add_image"
+        android:icon="@drawable/ic_icon_camera_white"
+        android:title="Camera"
+        app:showAsAction="always"/>
+</menu>

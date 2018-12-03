@@ -17,7 +17,7 @@ import com.example.dell.to_dolist.db.model.Subtask;
 import com.example.dell.to_dolist.db.model.Task;
 import com.example.dell.to_dolist.db.model.User;
 
-@Database(entities = {Reminder.class, User.class, Task.class, Subtask.class}, version = 5)
+@Database(entities = {Reminder.class, User.class, Task.class, Subtask.class}, version = 6)
 public abstract class AppDatabase extends RoomDatabase{
 
     private static AppDatabase INSTANCE;
