@@ -109,12 +109,16 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         notifyDataSetChanged();
     }
 
+
+
+
     @Override
     public int getItemCount() {
         if (mTasks != null)
             return mTasks.size();
         else return 0;
     }
+
     public TaskDisplay getTaskAtPosition (int position) {
         return mTasks.get(position);
     }

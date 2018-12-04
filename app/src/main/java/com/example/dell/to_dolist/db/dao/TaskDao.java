@@ -30,7 +30,7 @@ public interface TaskDao {
     @Query("DELETE FROM task_table where task_id = :taskId")
     void deleteTaskById(int taskId);
 
-    @Query("SELECT task_id, task_title,task_content from task_table")
+    @Query("SELECT task_id, task_title from task_table")
     LiveData<List<TaskDisplay>> getTaskList();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

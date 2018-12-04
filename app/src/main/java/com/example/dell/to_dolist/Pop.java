@@ -15,10 +15,13 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import android.provider.MediaStore;
+import android.support.design.widget.TextInputEditText;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +45,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Pop extends Activity {
+public class Pop extends AppCompatActivity {
 
     //private static final String TAG = "Pop";
     private static final String DATABASE_NAME = "todo_database";
@@ -73,9 +76,9 @@ public class Pop extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pop);
         ActionBar actionBar = getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3F51B5")));
-
+//        actionBar.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196F3")));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final EditText editTxt1 = findViewById(R.id.editText);
         btn = (ImageButton) findViewById(R.id.button);
@@ -86,7 +89,7 @@ public class Pop extends Activity {
         list = (ListView) findViewById(R.id.listView);
         arrayList = new ArrayList<String>();
         mprogress = (ProgressBar)findViewById(R.id.progress);
-      //  mprogress.setVisibility(View.GONE);
+        mprogress.setVisibility(View.GONE);
 
         selectCamera = (Button) findViewById(R.id.selectCamera);
         displayImage = (ImageView) findViewById(R.id.displayImage);
@@ -117,10 +120,6 @@ public class Pop extends Activity {
                             dialog.dismiss();
                         }
 
-
-
-
-
                     }
                 });
 
@@ -130,7 +129,8 @@ public class Pop extends Activity {
         });
 
 
-        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, arrayList);
+        adapter = new ArrayAdapter<String>(getApplicationContext(),
+                android.R.layout.simple_list_item_multiple_choice, arrayList);
 
         list.setAdapter(adapter);
 
@@ -140,7 +140,7 @@ public class Pop extends Activity {
         int width = metric.widthPixels;
         int height = metric.heightPixels;
 
-      //  getWindow().setLayout((int) (width * 0.7), (int) (height * 0.7));
+        //  getWindow().setLayout((int) (width * 0.7), (int) (height * 0.7));
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,7 +160,7 @@ public class Pop extends Activity {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         String tag = userInput1.getText().toString();
-                       // this line adds the data of your EditText and puts in your array
+                        // this line adds the data of your EditText and puts in your array
                         arrayList.add(tag);
                         // next thing you have to do is check if your adapter has changed
                         adapter.notifyDataSetChanged();
@@ -215,34 +215,16 @@ public class Pop extends Activity {
                     public void run() {
                         String titleValue = String.valueOf(editTxt1.getText());
 
-                       Task task = new Task(titleValue,"Milk","1/2/3","1","2/2/3","1","1","1", photobyteDB);
+                        Task task = new Task(titleValue,"1/2/3","1","2/2/3","1","1","1", photobyteDB);
                         long id=appDatabase.taskModel().insertTaskWithId(task);
                         Log.d("*****************", "taskID: "+id); //Jessica
                         long subId;
                         int k;
-                        //int count=list.getCount();
-                        SparseBooleanArray sparseBooleanArray = list.getCheckedItemPositions();
-                        //String selected = "";
-                       /* for(int i = 0; i < count; i++){
-
-                            if(sparseBooleanArray.get(i)) {
-
-                                //selected += list.getItemAtPosition(i).toString() + "\n";
-
-
-
-                            }
-
-                        }
-                        Log.d("ghjghjghj", "run: "+selected);*/
-                        Subtask sTask;
                         for (int i=0;i<arrayList.size();i++) {
 
-                            //Subtask sTask = new Subtask(String.valueOf(arrayList.get(i)), k, 0);
-                            if(sparseBooleanArray.get(i))
-                                sTask = new Subtask(arrayList.get(i),(int) id,1);
-                            else
-                                sTask = new Subtask(arrayList.get(i),(int) id,0);
+                            k=(int) id;
+                            Log.d("value", "run: "+k);
+                            Subtask sTask = new Subtask(arrayList.get(i),k,0);
                             subId=appDatabase.subTaskModel().insertSubTask(sTask);
                             Log.d("*****************", "subtaskID: "+subId); //Jessica
                         }
@@ -253,9 +235,9 @@ public class Pop extends Activity {
                        }*/
 
 
-                      //  dbFetchedbyte = appDatabase.taskModel().fetchTaskById(1).getImage();
+                        //  dbFetchedbyte = appDatabase.taskModel().fetchTaskById(1).getImage();
 
-                    //  photofinal = getImage(dbFetchedbyte);
+                        //  photofinal = getImage(dbFetchedbyte);
 
 
                     }
@@ -263,13 +245,13 @@ public class Pop extends Activity {
 
 
 
-               // mprogress.setVisibility(View.GONE);
+                // mprogress.setVisibility(View.GONE);
 
 
 
-               startActivity(new Intent(Pop.this,MainActivity.class));
+                startActivity(new Intent(Pop.this,MainActivity.class));
 
-               //displayImage.setImageBitmap(photofinal);
+                //displayImage.setImageBitmap(photofinal);
 
             }
         });
@@ -278,10 +260,10 @@ public class Pop extends Activity {
             @Override
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
+
                 int year = cal.get(Calendar.YEAR);
                 int month = cal.get(Calendar.MONTH);
                 int day = cal.get(Calendar.DAY_OF_MONTH);
-
                 DatePickerDialog dialog = new DatePickerDialog(
                         Pop.this,
                         android.R.style.Theme_DeviceDefault_Dialog,
@@ -289,6 +271,7 @@ public class Pop extends Activity {
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.GRAY));
                 dialog.show();
+                //Toast.makeText(Pop.this, "Calendar Date " +year+"/"+ month+"/"+day,Toast.LENGTH_LONG).show();
             }
         });
 
@@ -298,7 +281,8 @@ public class Pop extends Activity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
                 String date = month + "/" + day + "/" + year;
-               // mDisplayDate.setText(date);
+                // Toast.makeText(Pop.this, "Calendar Date " +year+"/"+ month+"/"+day,Toast.LENGTH_LONG).show();
+                //  mDisplayDate.setText(date);
             }
         };
 
@@ -350,11 +334,7 @@ public class Pop extends Activity {
                     // displayImage.setImageURI(selectedImage);
                     byte[] photobyte = getBytes(photo);
                     photobyteDB = photobyte;
-
-
                 }
-
-
                 break;
             case 2:
                 if(resultCode == RESULT_OK){
@@ -383,13 +363,52 @@ public class Pop extends Activity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu( Menu menu )
+    {
+        getMenuInflater().inflate( R.menu.add_menu, menu );
+        return true;
+    }
+
+/*
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_delete:
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //appDatabase.taskModel().deleteTaskById();
+                    }
+                }).start();
+                // Toast.makeText(Update.this,"Data deleted for id"+id,Toast.LENGTH_SHORT).show();
+
+            case R.id.action_add_location:
+                startActivity(new Intent(this,ChooseLocation.class));
+                return true;
+
+
+            case R.id.action_save:
+                //Toast.makeText(Update.this,"Data Saved For id"+id,Toast.LENGTH_SHORT).show();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                    }
+                });
+
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+
+    }
 
 
 
-
-
-
-
+*/
 
 
 
