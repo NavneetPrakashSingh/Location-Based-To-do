@@ -70,9 +70,14 @@ public  class Update extends AppCompatActivity {
                                 Log.i("0000000000000 :subtask",""+subtasks.get(i).getTitle()+" "+subtasks.get(i).getStatus()+" "+subtasks.get(i).getMainTaskKey());
                             }
                             for (int i = 0;i<al.size();i++){
+                                Log.d("hghgh", "run: inside");
                                 checkBox = new CheckBox(Update.this);
                                 checkBox.setTextSize(20);
                                 checkBox.setId(i);
+                                if(subtasks.get(i).getStatus()==0)
+                                    checkBox.setChecked(false);
+                                else
+                                    checkBox.setChecked(true);
                                 checkBox.setText(al.get(i));
                                 checkBox.setOnClickListener(getOnSelectedItem(checkBox));
                                 linearMain.addView(checkBox);

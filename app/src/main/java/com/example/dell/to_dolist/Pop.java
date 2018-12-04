@@ -220,12 +220,29 @@ public class Pop extends Activity {
                         Log.d("*****************", "taskID: "+id); //Jessica
                         long subId;
                         int k;
+                        //int count=list.getCount();
+                        SparseBooleanArray sparseBooleanArray = list.getCheckedItemPositions();
+                        //String selected = "";
+                       /* for(int i = 0; i < count; i++){
+
+                            if(sparseBooleanArray.get(i)) {
+
+                                //selected += list.getItemAtPosition(i).toString() + "\n";
+
+
+
+                            }
+
+                        }
+                        Log.d("ghjghjghj", "run: "+selected);*/
+                        Subtask sTask;
                         for (int i=0;i<arrayList.size();i++) {
 
-                            k=(int) id;
-                            Log.d("value", "run: "+k);
                             //Subtask sTask = new Subtask(String.valueOf(arrayList.get(i)), k, 0);
-                            Subtask sTask = new Subtask(arrayList.get(i),k,0);
+                            if(sparseBooleanArray.get(i))
+                                sTask = new Subtask(arrayList.get(i),(int) id,1);
+                            else
+                                sTask = new Subtask(arrayList.get(i),(int) id,0);
                             subId=appDatabase.subTaskModel().insertSubTask(sTask);
                             Log.d("*****************", "subtaskID: "+subId); //Jessica
                         }
