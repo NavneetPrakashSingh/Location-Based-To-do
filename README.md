@@ -1,5 +1,5 @@
 # Identification
-#### To-do List Application <img align="right" src="/ProjectDocumentation/LogoDesignFiles/logo_rounded.png" alt="Logo Icon"  width="150" height="113" style="float: right; margin-right: 10px;" />
+#### To-do List Application <img align="right" src="/ProjectDocumentation/LogoDesignFiles/logo_rounded.png" alt="Logo Icon"  width="512" height="413" style="float: right; margin-right: 10px;" />
 
 Group Members: 
 
