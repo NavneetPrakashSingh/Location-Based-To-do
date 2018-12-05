@@ -49,6 +49,10 @@
             android:label="Add Task"
             android:theme="@style/Theme.AppCompat.Light" />
         <activity android:name=".Update"></activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            ></activity>				
     </application>
 
 </manifest>
