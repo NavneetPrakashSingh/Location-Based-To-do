@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <EditText
+       <EditText
             android:id="@+id/title_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
             android:textColor="#3F51B5"
             android:textSize="40sp"
             android:text="Title"/>
-   <!-- <EditText
+    <!--<EditText
         android:id="@+id/title_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,15 +36,54 @@
         android:layout_alignParentTop="true"
         android:text="Title" />-->
 
-    <LinearLayout
+    <!--<LinearLayout
         android:orientation="vertical"
         android:id="@+id/linear_main"
         android:layout_below="@id/title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-    </LinearLayout>
-    <ImageView
+    </LinearLayout>-->
+        <ListView
+            android:id="@+id/linear_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:choiceMode="multipleChoice"
+            android:divider="#3F51B5"
+            android:scrollbars="vertical"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorWhite" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignBottom="@id/listView">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ADD NEW TASK"
+                android:layout_gravity="right"
+                android:drawableLeft="@drawable/ic_add_black_24dp"
+
+                android:theme="@style/SecondaryFlatButton"
+                android:visibility="visible"/>
+
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DELETE TASK"
+                android:layout_gravity="right"
+                android:drawableLeft="@drawable/ic_delete_black_24dp"
+                android:theme="@style/SecondaryFlatButton"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <ImageView
         android:id="@+id/displayImageInUpdate"
         android:layout_width="match_parent"
         android:padding="10dp"
