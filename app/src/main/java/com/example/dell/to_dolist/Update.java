@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -68,20 +67,37 @@ public  class Update extends AppCompatActivity {
                             {
                                 al.add(subtasks.get(i).getTitle());
                                 Log.i("0000000000000 :subtask",""+subtasks.get(i).getTitle()+" "+subtasks.get(i).getStatus()+" "+subtasks.get(i).getMainTaskKey());
-                            }
-                            for (int i = 0;i<al.size();i++){
-                                Log.d("hghgh", "run: inside");
                                 checkBox = new CheckBox(Update.this);
                                 checkBox.setTextSize(20);
-                                checkBox.setId(i);
+                                checkBox.setId(subtasks.get(i).getId());
                                 if(subtasks.get(i).getStatus()==0)
                                     checkBox.setChecked(false);
                                 else
                                     checkBox.setChecked(true);
-                                checkBox.setText(al.get(i));
-                                checkBox.setOnClickListener(getOnSelectedItem(checkBox));
+                                checkBox.setText(subtasks.get(i).getTitle());
+                                checkBox.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if(checkBox.isChecked())
+                                        {
+                                            appDatabase.subTaskModel().updateSubtask(1,checkBox.getId());
+                                        }
+                                        else
+                                        {
+                                            appDatabase.subTaskModel().updateSubtask(0,checkBox.getId());
+                                        }
+                                        //Log.d("CHECKBOX", "onClick: "+checkBox.isChecked());
+                                        //Log.i("On Click","Checkbox id:"+checkBox.getId()+"--"+checkBox.getText().toString());
+                                    }
+                                });
+                                //checkBox.setOnClickListener(getOnSelectedItem(checkBox));
                                 linearMain.addView(checkBox);
                             }
+                            //Commented by Jessica
+                           /* for (int i = 0;i<al.size();i++){
+                                Log.d("hghgh", "run: inside");
+
+                            }*/
                             dbFetchedbyte = appDatabase.taskModel().fetchTaskById(id).getImage();
 
                             photofinal = getImage(dbFetchedbyte);
@@ -109,14 +125,15 @@ public  class Update extends AppCompatActivity {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
 
-    View.OnClickListener getOnSelectedItem(final Button button) {
+    /*View.OnClickListener getOnSelectedItem(final Button button) {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("On Click","Checkbox id:"+button.getId()+"--"+button.getText().toString() );
+                appDatabase.subTaskModel().updateSubtask(id,status,button.getId());
+                Log.i("On Click","Checkbox id:"+button.getId()+"--"+button.getText().toString());
             }
         };
-    }
+    }*/
 
     public  void deleteTask(int id){
        final int deleteId= id;
