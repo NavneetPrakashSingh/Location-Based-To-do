@@ -20,5 +20,8 @@ public interface SubtaskDao {
 
     @Query("select * from subtask_table where maintask_id=:maintask_id")
     List<Subtask> loadAllSubTasks(int maintask_id);
+
+    @Query("UPDATE subtask_table SET status = :checkboxValue WHERE id = :id")
+    void updateSubtask(int checkboxValue, int id);
 }
 

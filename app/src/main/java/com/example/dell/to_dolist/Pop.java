@@ -13,7 +13,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;							  
+import android.text.TextUtils;
 
 import android.provider.MediaStore;
 import android.support.design.widget.TextInputEditText;
@@ -160,6 +160,8 @@ public class Pop extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                
+                
                    if (TextUtils.isEmpty(editTxt1.getText().toString())) {
 
                    editTxt1.setError("Please enter the main task");
@@ -204,6 +206,7 @@ public class Pop extends AppCompatActivity {
                     }
                 }).start();
                 startActivity(new Intent(Pop.this,MainActivity.class));
+               }
             }
         });
 

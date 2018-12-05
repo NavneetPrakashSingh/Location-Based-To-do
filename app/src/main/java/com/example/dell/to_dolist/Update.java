@@ -28,7 +28,7 @@ import java.util.List;
 public  class Update extends AppCompatActivity {
 
     private static final String DATABASE_NAME = "todo_database";
-    private  AppDatabase appDatabase = Room.databaseBuilder(this,AppDatabase.class,DATABASE_NAME).fallbackToDestructiveMigration().build();
+    private  AppDatabase appDatabase = Room.databaseBuilder(this,AppDatabase.class,DATABASE_NAME).fallbackToDestructiveMigration().allowMainThreadQueries().build();
 
     public int id =0;
 
@@ -73,7 +73,7 @@ public  class Update extends AppCompatActivity {
                                 Log.d("hghgh", "run: inside");
                                 checkBox = new CheckBox(Update.this);
                                 checkBox.setTextSize(20);
-                                checkBox.setId(i);
+                                checkBox.setId(subtasks.get(i).getId());
                                 if(subtasks.get(i).getStatus()==0)
                                     checkBox.setChecked(false);
                                 else
@@ -109,17 +109,28 @@ public  class Update extends AppCompatActivity {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
 
-    View.OnClickListener getOnSelectedItem(final Button button) {
+
+    View.OnClickListener getOnSelectedItem(final CheckBox checkbox) {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("On Click","Checkbox id:"+button.getId()+"--"+button.getText().toString() );
+               if(checkbox.isChecked())
+                {
+                    Log.i("On Click","CHECKED:"+checkbox.getId()+"--"+checkbox.getText().toString());
+                    appDatabase.subTaskModel().updateSubtask(1,checkbox.getId());
+                }
+                else
+                {
+                    Log.i("On Click","UNCHECKED:"+checkbox.getId()+"--"+checkbox.getText().toString());
+                    appDatabase.subTaskModel().updateSubtask(0,checkBox.getId());
+                }
             }
         };
     }
 
+
     public  void deleteTask(int id){
-       final int deleteId= id;
+        final int deleteId= id;
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -151,7 +162,7 @@ public  class Update extends AppCompatActivity {
                         appDatabase.taskModel().deleteTaskById(id);
                     }
                 }).start();
-               // Toast.makeText(Update.this,"Data deleted for id"+id,Toast.LENGTH_SHORT).show();
+                // Toast.makeText(Update.this,"Data deleted for id"+id,Toast.LENGTH_SHORT).show();
 
             case R.id.action_add_location:
                 startActivity(new Intent(this,ChooseLocation.class));
