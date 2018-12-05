@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -145,6 +146,27 @@ public  class Update extends AppCompatActivity {
 
 
 
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                SparseBooleanArray positioncheck = linearMain.getCheckedItemPositions();
+
+                int count = linearMain.getCount();
+
+                for(int i = count -1; i>=0; i--) {
+                    if (positioncheck.get(i)) {
+
+                        adapter.remove(arrayList.get(i));
+
+                    }
+                }
+                positioncheck.clear();
+
+                adapter.notifyDataSetChanged();
+            }
+        });
 
 
 
