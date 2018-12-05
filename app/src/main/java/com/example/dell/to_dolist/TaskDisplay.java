@@ -20,13 +20,13 @@ public class TaskDisplay {
     public void setId(int _id){this.id = _id;}
     public int getId(){return id;}
 
-/*    public double getCount() {
+    public double getCount() {
         return count;
     }
 
     public void setCount(double count) {
         this.count = count;
-    }*/
+    }
 
     @ColumnInfo(name = "task_title")
     private String title;
@@ -34,9 +34,19 @@ public class TaskDisplay {
     @ColumnInfo(name = "task_id")
     private int id;
 
-/*    @ColumnInfo(name = "count_status")
-    private double count;*/
+    @ColumnInfo(name = "count_status")
+    private double count;
 
 
+    public double getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(double totalCount) {
+        this.totalCount = totalCount;
+    }
+
+    @ColumnInfo(name = "total_count")
+    private double totalCount;
 }
 

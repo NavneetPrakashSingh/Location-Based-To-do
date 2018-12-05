@@ -30,15 +30,8 @@ public interface TaskDao {
     @Query("DELETE FROM task_table where task_id = :taskId")
     void deleteTaskById(int taskId);
 
-    @Query("SELECT task_id, task_title from task_table")
+    @Query("SELECT task_id, task_title, count_status, total_count from task_table")
     LiveData<List<TaskDisplay>> getTaskList();
-
-/*
-    @Query("SELECT task_table.task_id, task_table.task_title, ( count(subtask_table.id) * 100.0 / (select count(subtask_table.id) from subtask_table)) AS count_status " +
-            "FROM task_table inner join subtask_table " +
-            "on task_table.task_id=subtask_table.maintask_id ")
-    LiveData<List<TaskDisplay>> getTaskList();
-*/
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertTask(Task task);
@@ -52,5 +45,11 @@ public interface TaskDao {
     @Query("SELECT * from task_table LIMIT 1")
     Task[] getAnyTask();
 
+    @Query ("SELECT COUNT(id) / (select count(id) from subtask_table where maintask_id = :taskId) " +
+            "from subtask_table where status='1' and maintask_id = :taskId")
+    int countOfProgress(int taskId);
+
+    @Query("UPDATE task_table SET count_status=:count, total_count= :total WHERE task_id = :taskId")
+    void updateTaskCount(int count, int total, int taskId);
 
 }

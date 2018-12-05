@@ -39,10 +39,36 @@ public class Task {
     @Nullable
     private String locatonFlag;
 
+    @Nullable
+    public int getCountStatus() {
+        return countStatus;
+    }
+
+    public void setCountStatus(@Nullable int countStatus) {
+        this.countStatus = countStatus;
+    }
+
+    @ColumnInfo(name = "count_status")
+    @Nullable
+    private int countStatus;
+
+    @Nullable
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(@Nullable int totalCount) {
+        this.totalCount = totalCount;
+    }
+
+    @ColumnInfo(name = "total_count")
+    @Nullable
+    private int totalCount;
+
   @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     private byte[] image;
 
-   public Task(String title, String creationDate, String priority, String updateDate, String remFlag, String taskStatus, String locatonFlag, byte[] image) {
+   public Task(String title, String creationDate, String priority, String updateDate, String remFlag, String taskStatus, String locatonFlag, byte[] image, int countStatus, int totalCount) {
         this.title = title;
         this.creationDate = creationDate;
         this.priority = priority;
@@ -51,6 +77,8 @@ public class Task {
         this.taskStatus = taskStatus;
         this.locatonFlag = locatonFlag;
         this.image = image;
+        this.countStatus = countStatus;
+        this.totalCount = totalCount;
     }
 
 
