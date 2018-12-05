@@ -1,155 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:baselineAligned="false"
-    android:orientation="vertical"
     android:visibility="visible">
-
-
-    
-    <ProgressBar
-
-        android:id="@+id/progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp"
-        android:visibility="invisible"
-        android:indeterminate="true"
-        android:indeterminateTintMode="src_atop"
-        android:indeterminateTint="@color/text" />
-
-  <android.support.design.widget.TextInputLayout
-        android:id="@+id/input_layout_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="17dp"
-        android:hint="Title"
-        android:textAlignment="viewStart"
-        android:textColor="#3F51B5"
-        android:textSize="20sp" />
-   </android.support.design.widget.TextInputLayout>
-
-    <ListView
-        android:id="@+id/listView"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/button"
-        android:layout_marginTop="115dp"
-        android:layout_weight="1"
-        android:choiceMode="multipleChoice"
-        android:divider="#3F51B5"
-        android:scrollbars="vertical"
-        android:background="@color/colorPrimary"
-        android:textColor="#3F51B5" />
-
-    <ImageButton
-        android:id="@+id/button"
-        android:layout_width="19dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="69dp"
-        android:background="@null"
-        android:src="@android:drawable/ic_input_add"
-        android:visibility="visible" />
-
-    <ImageButton
-        android:id="@+id/btnCancel"
-        android:layout_width="21dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/button"
-        android:layout_marginStart="45dp"
-        android:background="@null"
-        android:elevation="0dp"
-        android:src="@android:drawable/ic_delete"
-        android:visibility="visible" />
-
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:orientation="horizontal"
-        android:weightSum="4">
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="4" />
-
-
-        <ImageButton
-            android:id="@+id/submit"
-            android:layout_width="58dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@null"
-            android:src="@android:drawable/ic_menu_upload" />
-
-
-        <ImageButton
-
-            android:id="@+id/calender"
-            android:layout_width="58dp"
-            android:layout_height="match_parent"
-            android:background="@null"
-            android:src="@android:drawable/ic_menu_my_calendar" />
-
-        <ImageButton
-            android:id="@+id/location"
-            android:layout_width="58dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@null"
-            android:onClick="selectLocation"
-            android:src="@android:drawable/ic_menu_mylocation" />
-
-
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/selectCamera"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="77dp"
-        android:layout_marginTop="59dp"
-        android:text="Camera"
-        android:textSize="13dp" />
-
-
-    <ImageView
-        android:id="@+id/displayImage"
-        android:layout_alignLeft="@id/listView"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:adjustViewBounds="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="167dp"
-        android:layout_toEndOf="@+id/selectCamera"/>
-
-
+        android:orientation="vertical"
+        android:layout_gravity="top|center">
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top">
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="17dp"
+                android:hint="Title"
+                android:textAlignment="viewStart"
+                android:textColor="#3F51B5"
+                android:textSize="20sp" />
+        </android.support.design.widget.TextInputLayout>
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:choiceMode="multipleChoice"
+            android:divider="#3F51B5"
+            android:scrollbars="vertical"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorWhite" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignBottom="@id/listView">
+            <ImageButton
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:src="@android:drawable/ic_input_add"
+                android:visibility="visible"/>
+            <ImageButton
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:src="@android:drawable/ic_delete"
+                android:visibility="visible" />
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/displayImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_alignParentTop="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/saveLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center|bottom">
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:layout_gravity="right"
+            android:theme="@style/PrimaryFlatButton" />
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_delete"
+            android:textColor="@color/colorMain"
+            android:textSize="@dimen/activity_button_text"
+            android:textStyle="bold"
+            android:theme="@style/PrimaryFlatButton" />
+    </LinearLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>

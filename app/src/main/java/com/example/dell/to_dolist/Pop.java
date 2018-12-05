@@ -57,18 +57,15 @@ public class Pop extends AppCompatActivity {
 
     private ImageButton btn;
     private ImageButton btnCancel;
-    private ImageButton submit;
-    private ImageButton location;
-    private ImageButton calender;
+    private Button submit;
+
     private ListView list;
     private ArrayAdapter<String> adapter;
     private ArrayList<String> arrayList;
     private byte[] photobyteDB;
     private byte[] dbFetchedbyte;
     private Bitmap photofinal;
-    private ProgressBar mprogress;
-
-    private Button selectCamera;
+    /*private ProgressBar mprogress;*/
     private ImageView displayImage;
 
     @Override
@@ -82,51 +79,16 @@ public class Pop extends AppCompatActivity {
 
         final EditText editTxt1 = findViewById(R.id.editText);
         btn = (ImageButton) findViewById(R.id.button);
-        submit = (ImageButton) findViewById(R.id.submit);
-        location = (ImageButton) findViewById(R.id.location);
-        calender = (ImageButton) findViewById(R.id.calender);
+        submit = (Button) findViewById(R.id.submit);
+
         btnCancel = (ImageButton) findViewById(R.id.btnCancel);
         list = (ListView) findViewById(R.id.listView);
         arrayList = new ArrayList<String>();
-        mprogress = (ProgressBar)findViewById(R.id.progress);
-        mprogress.setVisibility(View.GONE);
-
-        selectCamera = (Button) findViewById(R.id.selectCamera);
         displayImage = (ImageView) findViewById(R.id.displayImage);
 
 
 
 
-        selectCamera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                final CharSequence[] items = { "Take Photo", "Choose from Library",
-                        "Cancel" };
-                AlertDialog.Builder builder = new AlertDialog.Builder(Pop.this);
-                builder.setTitle("Add Photo!");
-
-                builder.setItems(items, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int item) {
-
-                        if (items[item].equals("Take Photo")) {
-                            camera();
-                        } else if (items[item].equals("Choose from Library")) {
-
-                            gallery();
-                        } else if (items[item].equals("Cancel")) {
-                            dialog.dismiss();
-                        }
-
-                    }
-                });
-
-                builder.show();
-
-            }
-        });
 
 
         adapter = new ArrayAdapter<String>(getApplicationContext(),
@@ -203,11 +165,6 @@ public class Pop extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                mprogress.setVisibility(View.VISIBLE);
-
-
-
-
                 String value ="";
 
                 new Thread(new Runnable() {
@@ -220,25 +177,9 @@ public class Pop extends AppCompatActivity {
                         Log.d("*****************", "taskID: "+id); //Jessica
                         long subId;
                         int k;
-                        //int count=list.getCount();
                         SparseBooleanArray sparseBooleanArray = list.getCheckedItemPositions();
-                        //String selected = "";
-                       /* for(int i = 0; i < count; i++){
-
-                            if(sparseBooleanArray.get(i)) {
-
-                                //selected += list.getItemAtPosition(i).toString() + "\n";
-
-
-
-                            }
-
-                        }
-                        Log.d("ghjghjghj", "run: "+selected);*/
                         Subtask sTask;
                         for (int i=0;i<arrayList.size();i++) {
-
-                            //Subtask sTask = new Subtask(String.valueOf(arrayList.get(i)), k, 0);
                             if(sparseBooleanArray.get(i))
                                 sTask = new Subtask(arrayList.get(i),(int) id,1);
                             else
@@ -248,51 +189,13 @@ public class Pop extends AppCompatActivity {
                         }
 
 
-                  /*    for (int i=0;i<arrayList.size();i++){
-                            Subtask sTask = new Subtask(String.valueOf(arrayList.get(i)),lastestTaskInserted.intValue(),0);
-                            appDatabase.subTaskModel().insertSubTask(sTask);
-                       }*/
-
-
-                        //  dbFetchedbyte = appDatabase.taskModel().fetchTaskById(1).getImage();
-
-                        //  photofinal = getImage(dbFetchedbyte);
-
-
                     }
                 }).start();
-
-
-
-                // mprogress.setVisibility(View.GONE);
-
-
-
                 startActivity(new Intent(Pop.this,MainActivity.class));
-
-                //displayImage.setImageBitmap(photofinal);
-
             }
         });
 
-        calender.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
 
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog dialog = new DatePickerDialog(
-                        Pop.this,
-                        android.R.style.Theme_DeviceDefault_Dialog,
-                        mDateSetListener,
-                        year, month, day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.GRAY));
-                dialog.show();
-                //Toast.makeText(Pop.this, "Calendar Date " +year+"/"+ month+"/"+day,Toast.LENGTH_LONG).show();
-            }
-        });
 
 
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
@@ -300,8 +203,7 @@ public class Pop extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
                 String date = month + "/" + day + "/" + year;
-                // Toast.makeText(Pop.this, "Calendar Date " +year+"/"+ month+"/"+day,Toast.LENGTH_LONG).show();
-                //  mDisplayDate.setText(date);
+
             }
         };
 
@@ -375,12 +277,7 @@ public class Pop extends AppCompatActivity {
     public static Bitmap getImage(byte[] image) {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
-    public boolean onOptionsItemSelected(MenuItem item){
-        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivityForResult(myIntent, 0);
-        return true;
 
-    }
 
     @Override
     public boolean onCreateOptionsMenu( Menu menu )
@@ -389,48 +286,65 @@ public class Pop extends AppCompatActivity {
         return true;
     }
 
-/*
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_delete:
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        //appDatabase.taskModel().deleteTaskById();
-                    }
-                }).start();
+            case R.id.action_set_reminder:
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog dialog = new DatePickerDialog(
+                        Pop.this,
+                        android.R.style.Theme_DeviceDefault_Dialog,
+                        mDateSetListener,
+                        year, month, day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.GRAY));
+                dialog.show();
                 // Toast.makeText(Update.this,"Data deleted for id"+id,Toast.LENGTH_SHORT).show();
-
+                return true;
             case R.id.action_add_location:
                 startActivity(new Intent(this,ChooseLocation.class));
                 return true;
 
 
-            case R.id.action_save:
+            case R.id.action_add_image:
                 //Toast.makeText(Update.this,"Data Saved For id"+id,Toast.LENGTH_SHORT).show();
-                new Thread(new Runnable() {
+                final CharSequence[] items = { "Take Photo", "Choose from Library",
+                        "Cancel" };
+                AlertDialog.Builder builder = new AlertDialog.Builder(Pop.this);
+                builder.setTitle("Add Photo!");
+
+                builder.setItems(items, new DialogInterface.OnClickListener() {
                     @Override
-                    public void run() {
+                    public void onClick(DialogInterface dialog, int item) {
+
+                        if (items[item].equals("Take Photo")) {
+                            camera();
+                        } else if (items[item].equals("Choose from Library")) {
+
+                            gallery();
+                        } else if (items[item].equals("Cancel")) {
+                            dialog.dismiss();
+                        }
+
                     }
                 });
+
+                builder.show();
 
                 return true;
 
             default:
-                return super.onOptionsItemSelected(item);
+                Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivityForResult(myIntent, 0);
+                return true;
 
         }
 
     }
-
-
-
-*/
-
-
-
 
 
 
