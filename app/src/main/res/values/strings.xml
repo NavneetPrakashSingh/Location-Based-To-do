@@ -17,4 +17,12 @@
     <string name="menu_task">Tasks</string>
     <string name="menu_AddTask">Add</string>
     <string name="menu_home">Home</string>
+	
+	<string name="feedback_praise">Praise</string>
+    <string name="feedback_suggest">Suggestion</string>
+    <string name="feedback_bug">Error</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="about">Settings</string>
+	<string name="feedback_message_title">Your message</string>
+	
 </resources>
