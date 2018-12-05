@@ -28,7 +28,7 @@ import java.util.List;
 public  class Update extends AppCompatActivity {
 
     private static final String DATABASE_NAME = "todo_database";
-    private  AppDatabase appDatabase = Room.databaseBuilder(this,AppDatabase.class,DATABASE_NAME).fallbackToDestructiveMigration().build();
+    private  AppDatabase appDatabase = Room.databaseBuilder(this,AppDatabase.class,DATABASE_NAME).fallbackToDestructiveMigration().allowMainThreadQueries().build();
 
     public int id =0;
 
@@ -114,13 +114,14 @@ public  class Update extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("On Click","Checkbox id:"+checkbox.getId()+"--"+checkbox.getText().toString()+" "+checkbox.isChecked() );
-                if(checkbox.isChecked())
+               if(checkbox.isChecked())
                 {
+                    Log.i("On Click","CHECKED:"+checkbox.getId()+"--"+checkbox.getText().toString());
                     appDatabase.subTaskModel().updateSubtask(1,checkbox.getId());
                 }
                 else
                 {
+                    Log.i("On Click","UNCHECKED:"+checkbox.getId()+"--"+checkbox.getText().toString());
                     appDatabase.subTaskModel().updateSubtask(0,checkBox.getId());
                 }
             }
