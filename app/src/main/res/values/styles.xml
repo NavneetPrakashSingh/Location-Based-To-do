@@ -77,6 +77,12 @@
         </item>
         <item name="colorAccent">#FFAB40</item>
     </style>
+    <style name="SecondaryFlatButton" parent="Theme.AppCompat.Light">
+        <item name="android:buttonStyle">
+            @style/Widget.AppCompat.Button.Borderless.Colored
+        </item>
+        <item name="colorAccent">#2196F3</item>
+    </style>
 
 
     <style name="AppFullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">

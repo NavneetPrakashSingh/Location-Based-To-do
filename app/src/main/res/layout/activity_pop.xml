@@ -54,19 +54,27 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_alignBottom="@id/listView">
-            <ImageButton
+
+            <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:src="@android:drawable/ic_input_add"
+                android:text="ADD NEW TASK"
+                android:layout_gravity="right"
+                android:drawableLeft="@android:drawable/ic_input_add"
+
+                android:theme="@style/SecondaryFlatButton"
                 android:visibility="visible"/>
-            <ImageButton
+
+
+            <Button
                 android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:src="@android:drawable/ic_delete"
+                android:text="DELETE TASK"
+                android:layout_gravity="right"
+                android:drawableLeft="@android:drawable/ic_delete"
+                android:theme="@style/SecondaryFlatButton"
                 android:visibility="visible" />
         </LinearLayout>
         <ImageView

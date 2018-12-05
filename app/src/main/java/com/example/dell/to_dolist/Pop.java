@@ -55,8 +55,8 @@ public class Pop extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
 
-    private ImageButton btn;
-    private ImageButton btnCancel;
+    private Button btn;
+    private Button btnCancel;
     private Button submit;
 
     private ListView list;
@@ -78,10 +78,10 @@ public class Pop extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final EditText editTxt1 = findViewById(R.id.editText);
-        btn = (ImageButton) findViewById(R.id.button);
+        btn = (Button) findViewById(R.id.button);
         submit = (Button) findViewById(R.id.submit);
 
-        btnCancel = (ImageButton) findViewById(R.id.btnCancel);
+        btnCancel = (Button) findViewById(R.id.btnCancel);
         list = (ListView) findViewById(R.id.listView);
         arrayList = new ArrayList<String>();
         displayImage = (ImageView) findViewById(R.id.displayImage);

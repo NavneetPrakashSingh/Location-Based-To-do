@@ -10,7 +10,11 @@
         android:id="@+id/userinput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Input Subtask" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:textColor="#3F51B5"
+        android:textSize="30sp"
+        android:hint="Enter the task" />
 
 
 </RelativeLayout>
