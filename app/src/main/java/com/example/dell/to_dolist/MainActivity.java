@@ -176,11 +176,7 @@ public class MainActivity extends AppCompatActivity {
             mTaskViewModel.deleteAll();
             return true;
         }*/
-        if (id == R.id.about) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-            return true;
-        }
+
         return super.onOptionsItemSelected(item);
     }
 

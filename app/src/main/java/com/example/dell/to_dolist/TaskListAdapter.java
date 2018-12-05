@@ -80,8 +80,8 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         holder.taskName.setText(current.getTitle());
 
         /*holder.taskContent.setText(current.getContent());*/
-       //holder.progressBar.setProgress(1);
-        holder.progressBar.setProgress( (int) current.getCount() );
+          holder.progressBar.setProgress(1);
+        //holder.progressBar.setProgress( (int) current.getCount() );
     /*   holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
