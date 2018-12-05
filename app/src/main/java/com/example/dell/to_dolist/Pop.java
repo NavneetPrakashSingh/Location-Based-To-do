@@ -59,7 +59,7 @@ public class Pop extends AppCompatActivity {
     private Button btn;
     private Button btnCancel;
     private Button submit;
-
+    private  Button cancelTask;
     private ListView list;
     private ArrayAdapter<String> adapter;
     private ArrayList<String> arrayList;
@@ -81,7 +81,7 @@ public class Pop extends AppCompatActivity {
         final EditText editTxt1 = findViewById(R.id.editText);
         btn = (Button) findViewById(R.id.button);
         submit = (Button) findViewById(R.id.submit);
-
+        cancelTask = (Button)findViewById(R.id.deleteButton);
         btnCancel = (Button) findViewById(R.id.btnCancel);
         list = (ListView) findViewById(R.id.listView);
         arrayList = new ArrayList<String>();
@@ -211,7 +211,14 @@ public class Pop extends AppCompatActivity {
         });
 
 
+        cancelTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
 
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
