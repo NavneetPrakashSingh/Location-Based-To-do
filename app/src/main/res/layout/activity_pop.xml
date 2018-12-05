@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:text="ADD NEW TASK"
                 android:layout_gravity="right"
-                android:drawableLeft="@android:drawable/ic_input_add"
+                android:drawableLeft="@drawable/ic_add_black_24dp"
 
                 android:theme="@style/SecondaryFlatButton"
                 android:visibility="visible"/>
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:text="DELETE TASK"
                 android:layout_gravity="right"
-                android:drawableLeft="@android:drawable/ic_delete"
+                android:drawableLeft="@drawable/ic_delete_black_24dp"
                 android:theme="@style/SecondaryFlatButton"
                 android:visibility="visible" />
         </LinearLayout>
