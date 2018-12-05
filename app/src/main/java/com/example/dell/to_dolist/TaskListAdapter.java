@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
 
 import java.util.List;
 
@@ -79,9 +81,9 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         }
         holder.taskName.setText(current.getTitle());
 
-        /*holder.taskContent.setText(current.getContent());*/
-          holder.progressBar.setProgress(1);
-        //holder.progressBar.setProgress( (int) current.getCount() );
+        double percent= (current.getCount() * 100) / current.getTotalCount();
+        holder.progressBar.setProgress( (int) percent );
+
     /*   holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,7 +114,6 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
 
 
-
     @Override
     public int getItemCount() {
         if (mTasks != null)
@@ -125,4 +126,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
     }
 }
 
-
+/*public int getCOuntofProgress(int taskId)
+{
+    return TaskDao_Impl.countOfProgress(taskId);
+}*/
