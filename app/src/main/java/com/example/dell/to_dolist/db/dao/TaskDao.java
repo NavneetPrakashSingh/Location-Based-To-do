@@ -30,7 +30,13 @@ public interface TaskDao {
     @Query("DELETE FROM task_table where task_id = :taskId")
     void deleteTaskById(int taskId);
 
-    @Query("SELECT task_id, task_title from task_table")
+/*    @Query("SELECT task_id, task_title from task_table")
+    LiveData<List<TaskDisplay>> getTaskList();*/
+
+    @Query("SELECT task_table.task_id, task_table.task_title, ( count(subtask_table.id) * 100.0 / (select count(subtask_table.id) from subtask_table)) AS count_status " +
+            "FROM task_table inner join subtask_table " +
+            "on task_table.task_id=subtask_table.maintask_id " +
+            "and subtask_table.status='1'")
     LiveData<List<TaskDisplay>> getTaskList();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -44,4 +50,6 @@ public interface TaskDao {
 
     @Query("SELECT * from task_table LIMIT 1")
     Task[] getAnyTask();
+
+
 }
