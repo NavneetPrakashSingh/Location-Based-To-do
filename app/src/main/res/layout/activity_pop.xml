@@ -6,12 +6,24 @@
     android:background="@color/colorWhite"
     android:baselineAligned="false"
     android:visibility="visible">
+    <!--Jessica-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="top|center">
-        <android.support.design.widget.TextInputLayout
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:textColor="#3F51B5"
+            android:textSize="40sp" />
+
+        <!--<android.support.design.widget.TextInputLayout
             android:id="@+id/input_layout_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,12 +35,12 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="17dp"
-                android:hint="Title"
+                android:hint="TITLE"
                 android:textAlignment="viewStart"
                 android:textColor="#3F51B5"
-                android:textSize="20sp" />
+                android:textSize="40sp" />
         </android.support.design.widget.TextInputLayout>
-        <ListView
+       --> <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
