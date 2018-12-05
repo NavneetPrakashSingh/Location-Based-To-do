@@ -13,6 +13,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;							  
 
 import android.provider.MediaStore;
 import android.support.design.widget.TextInputEditText;
@@ -55,8 +56,8 @@ public class Pop extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
 
-    private ImageButton btn;
-    private ImageButton btnCancel;
+    private Button btn;
+    private Button btnCancel;
     private Button submit;
 
     private ListView list;
@@ -78,18 +79,13 @@ public class Pop extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final EditText editTxt1 = findViewById(R.id.editText);
-        btn = (ImageButton) findViewById(R.id.button);
+        btn = (Button) findViewById(R.id.button);
         submit = (Button) findViewById(R.id.submit);
 
-        btnCancel = (ImageButton) findViewById(R.id.btnCancel);
+        btnCancel = (Button) findViewById(R.id.btnCancel);
         list = (ListView) findViewById(R.id.listView);
         arrayList = new ArrayList<String>();
         displayImage = (ImageView) findViewById(R.id.displayImage);
-
-
-
-
-
 
         adapter = new ArrayAdapter<String>(getApplicationContext(),
                 android.R.layout.simple_list_item_multiple_choice, arrayList);
@@ -164,6 +160,14 @@ public class Pop extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                   if (TextUtils.isEmpty(editTxt1.getText().toString())) {
+
+                   editTxt1.setError("Please enter the main task");
+
+               }
+               
+                else
+               {
 
                 String value ="";
 
@@ -172,23 +176,31 @@ public class Pop extends AppCompatActivity {
                     public void run() {
                         String titleValue = String.valueOf(editTxt1.getText());
 
-                        Task task = new Task(titleValue,"1/2/3","1","2/2/3","1","1","1", photobyteDB);
+                        Task task = new Task(titleValue,"1/2/3","1","2/2/3","1","1","1", photobyteDB,0,0);
                         long id=appDatabase.taskModel().insertTaskWithId(task);
                         Log.d("*****************", "taskID: "+id); //Jessica
                         long subId;
                         int k;
+                        int count=0;
+                        int totalCount=0;
                         SparseBooleanArray sparseBooleanArray = list.getCheckedItemPositions();
                         Subtask sTask;
                         for (int i=0;i<arrayList.size();i++) {
                             if(sparseBooleanArray.get(i))
-                                sTask = new Subtask(arrayList.get(i),(int) id,1);
-                            else
-                                sTask = new Subtask(arrayList.get(i),(int) id,0);
+                            {   sTask = new Subtask(arrayList.get(i),(int) id,1);
+                                count++;
+                            }
+                            else {
+                                sTask = new Subtask( arrayList.get( i ), (int) id, 0 );
+                                
+                            }
                             subId=appDatabase.subTaskModel().insertSubTask(sTask);
+                            totalCount++;
                             Log.d("*****************", "subtaskID: "+subId); //Jessica
                         }
 
-
+                        appDatabase.taskModel().updateTaskCount( count,totalCount,(int)id );
+                        
                     }
                 }).start();
                 startActivity(new Intent(Pop.this,MainActivity.class));
