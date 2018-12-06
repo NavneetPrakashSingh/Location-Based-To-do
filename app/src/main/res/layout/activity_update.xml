@@ -27,11 +27,11 @@
             android:textColorHint="@color/buttonLabel"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
             android:textAlignment="viewEnd"
-            android:text="Reminder set for "
             android:textColor="#3F51B5"
-            android:textSize="10sp"
-            android:visibility="invisible"/>
+            android:textSize="30sp"
+            android:visibility="gone"/>
 
        <EditText
             android:id="@+id/title_text"

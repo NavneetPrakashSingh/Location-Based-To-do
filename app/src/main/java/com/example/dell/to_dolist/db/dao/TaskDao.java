@@ -18,6 +18,9 @@ public interface TaskDao {
     @Query("select * from task_table")
     List<Task> loadAllTasks();
 
+    @Query("select creation_date from task_table where task_id = :taskId")
+    String fetchDate(int taskId);
+
     @Query("select * from task_table order by priority asc")
     List<Task> sortTaskByPriority();
 

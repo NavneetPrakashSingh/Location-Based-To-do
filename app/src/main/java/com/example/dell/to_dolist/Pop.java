@@ -29,6 +29,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.app.AlertDialog;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.dell.to_dolist.db.model.Subtask;
 import com.example.dell.to_dolist.db.model.Task;
@@ -43,6 +44,7 @@ public class Pop extends AppCompatActivity {
     private static final String DATABASE_NAME = "todo_database";
     private AppDatabase appDatabase = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).fallbackToDestructiveMigration().build();
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private TextView reminder;
     private Button btn;
     private Button btnCancel;
     private Button submit;
@@ -68,6 +70,7 @@ public class Pop extends AppCompatActivity {
         submit = (Button) findViewById(R.id.submit);
         cancelTask = (Button) findViewById(R.id.deleteButton);
         btnCancel = (Button) findViewById(R.id.btnCancel);
+        reminder = (TextView) findViewById(R.id.reminder);
         list = (ListView) findViewById(R.id.listView);
         arrayList = new ArrayList<String>();
         displayImage = (ImageView) findViewById(R.id.displayImage);
@@ -207,7 +210,8 @@ public class Pop extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
                 date = month + "/" + day + "/" + year;
-
+                reminder.setText("Reminder set for "+date);
+                reminder.setVisibility(View.VISIBLE);
             }
         };
 

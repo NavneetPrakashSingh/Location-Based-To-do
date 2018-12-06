@@ -31,6 +31,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dell.to_dolist.db.model.Subtask;
@@ -49,6 +50,7 @@ public  class Update extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     public int id =0;
     private Button btn;
+    private TextView reminder;
     private Button btnCancel;
     private Button submit;
     private Button saveTask;
@@ -74,6 +76,7 @@ public  class Update extends AppCompatActivity {
         btn = (Button) findViewById(R.id.button);
         btnCancel = (Button) findViewById(R.id.btnCancel);
         submit = (Button) findViewById(R.id.submit);
+        reminder=(TextView) findViewById(R.id.reminder);
         saveTask = (Button)findViewById(R.id.saveTask) ;
         linearMain = findViewById(R.id.linear_main);
         //list = (ListView) findViewById(R.id.listView);
@@ -83,6 +86,11 @@ public  class Update extends AppCompatActivity {
         if (getId != null) {
             if (getId.getString("id") != null) {
                 id = Integer.valueOf(getId.getString("id"));
+                String date= appDatabase.taskModel().fetchDate(id);
+                if(date!=null || !date.equalsIgnoreCase("")) {
+                    reminder.setText("Reminder set for " + date);
+                    reminder.setVisibility(View.VISIBLE);
+                }
                 //query over database and get the data
                 new Thread(new Runnable() {
                     @Override
