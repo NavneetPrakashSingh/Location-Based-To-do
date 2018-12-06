@@ -129,24 +129,22 @@ We had a major issue of code present in multiple places within the applicaiton. 
 &nbsp;The application gives a provision to the user to set a location for every task. In the future, if the user happens to be around that location, a reminder will be sent to the user in the form of a notification. 
 
 9. **Support & Feedback**
-&nbsp;A simple feedback form will be displayed for the user to send their concerns and queries regarding the application. This feature will be accessible from the drawable menu. By providing support regarding the app, it helps not only them with their concerns, but also us as to how effectively the application was developed. 
+&nbsp;A simple feedback form will be displayed for the user to send their concerns and queries regarding the application. This feature will be accessible from the top right side of the application in action bar. By providing support regarding the app, it helps not only them with their concerns, but also us as to how effectively the application was developed. 
 
 
 ## Project Status
-We have completed around 30% of the project. We have implemented the backend functionalities and some of the UI implementation as well. Status of the functionalities are listed below.
+Status of the functionalities are listed below.
 
-#### Minimum Functionality
-- Feature 1 Create, update and remove tasks in list 
-- Feature 2 Task sorting 
-- Feature 3 Support form 
-
-#### Expected Functionality
-- Feature 1 Notification Alert 
-- Feature 2 Location tagging for task 
-
-#### Bonus Functionality
-- Feature 1 Task progress visualization 
-- Feature 2 Image addition in list 
+#### Guaranteed Functionality
+- Feature 1 Add new task (Completed)
+- Feature 2 View tasks on home screen (Completed)
+- Feature 3 Checking/unchecking task (Completed)
+- Feature 4 Update existing task (Completed)
+- Feature 5 Delete task (Completed)
+- Feature 6 Camera feature (Completed)
+- Feature 7 Location tagging (Completed)
+- Feature 8 Location-based reminder (Completed)
+- Feature 9 Support & Feedback (Completed)
 
 ## Sources
 [1] Developers, G. (2018). App permissions best practices | Android Developers. Retrieved from https://developer.android.com/training/permissions/usage-notes<br/>
