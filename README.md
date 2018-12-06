@@ -45,7 +45,7 @@ Kindly perform the below steps to run the code:
 ```
 ## Code Examples
 
-**Problem 1: We needed a method to convert BitMap image file to byte array and vice versa **
+**Problem 1: We needed a method to convert BitMap image file to byte array and vice versa**
 
  We basically converted the image file (BitMap) in to byte array streams and then stored it in Room column whose data type is BLOB (Room database supports it).
 ```
@@ -69,8 +69,9 @@ To read and render it back the image from BLOB storage, we reversed the process 
 // Source: Wikipedia Java [1]
 ```
 
-**Problem 2: Code abstraction to access same feature from multiple places **
- We had a major issue of code present in multiple places within the applicaiton. To solve this problem we had restructured our code and used classes to access it from multiple places providing proper abstraction. Consider the code to access location, which is used when the app launches and when the app is in backgruond to get the current location of the user.
+**Problem 2: Code abstraction to access same feature from multiple places**
+
+We had a major issue of code present in multiple places within the applicaiton. To solve this problem we had restructured our code and used classes to access it from multiple places providing proper abstraction. Consider the code to access location, which is used when the app launches and when the app is in backgruond to get the current location of the user.
 ```
 // Sample input : source from where it is called
 // Sample output: returns the logitude and latitude of the user
@@ -84,6 +85,7 @@ To read and render it back the image from BLOB storage, we reversed the process 
 
 
 **Problem 3: Code to check internet connectivity**
+
  As we are including fetching location from Google API which requires internet connectivity, we do need to have something to indicate users in case of no connectivity. For this we uses Connectivity Manager
 
 ```
