@@ -25,13 +25,15 @@ public class SettingsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView(R.layout.feedback);
+
+        // referenced from StackOverflow
         String email_pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
         feedback=(TextView)findViewById( R.id.message_title ) ;
         submit_Feedback=(Button) findViewById( R.id.submitFeedback );
         final Pattern pattern =  Pattern.compile(email_pattern);
-
+        // end of reference from StackOverflow
         submit_Feedback.setOnClickListener(new View.OnClickListener() {
             @Override
 										 
