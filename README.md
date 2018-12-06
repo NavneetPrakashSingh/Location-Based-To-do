@@ -103,6 +103,13 @@ We had a major issue of code present in multiple places within the applicaiton. 
 ```
 
 
+## Progress Section
+1. Paper Wireframes: https://git.cs.dal.ca/castelino/To-Do-List/blob/master/ProjectDocumentation/PaperWireframes/paperWireframes.jpg
+3. Low Fidelity Prototypes: https://git.cs.dal.ca/castelino/To-Do-List/tree/master/ProjectDocumentation/Prototype
+2. Clickstreams: https://git.cs.dal.ca/castelino/To-Do-List/blob/master/ProjectDocumentation/Clickstreams/Clickstreams_video.mp4?expanded=true&viewer=rich
+3. High Fidelity prototypes: https://git.cs.dal.ca/castelino/To-Do-List/tree/master/ProjectDocumentation/Wireframe
+4. Analysis : https://git.cs.dal.ca/castelino/To-Do-List/tree/master/ProjectDocumentation/Analysis
+
 ## Feature Section
 1. **Add new task**  
 &nbsp;The application allows users to add a new task such as “Grocery”. This task can have multiple sub-tasks such as “Milk, bread, cheese” added under Grocery. The task title and its sub-task elements are stored in the database. 
