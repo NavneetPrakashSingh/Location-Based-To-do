@@ -47,8 +47,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Pop"
-            android:label="Add Task"
-            android:theme="@style/Theme.AppCompat.Light" />
+            android:label="New Task"
+            android:theme="@style/Theme.AppCompat" />
         <activity android:name=".Update"></activity>
         <activity
             android:name=".SettingsActivity"
