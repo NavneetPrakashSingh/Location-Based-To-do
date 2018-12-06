@@ -23,5 +23,8 @@ public interface SubtaskDao {
 
     @Query("UPDATE subtask_table SET status = :checkboxValue WHERE id = :id")
     void updateSubtask(int checkboxValue, int id);
+
+    @Query("DELETE FROM subtask_table where maintask_id=:maintask_id")
+    void deleteSubtasks(int maintask_id);
 }
 

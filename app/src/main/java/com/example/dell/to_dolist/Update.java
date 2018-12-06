@@ -115,7 +115,6 @@ public  class Update extends AppCompatActivity {
                 public void onClick(View view) {
 
                     // View view1 = (LayoutInflater.from(Pop.this)).inflate(R.layout.user_input, null);
-                    Log.d("I AM UNIQUE", "onClick: ");
                     AlertDialog.Builder builder2 = new AlertDialog.Builder(Update.this);
                     LayoutInflater inflater = Update.this.getLayoutInflater();
                     ViewGroup parent = null;
@@ -135,41 +134,48 @@ public  class Update extends AppCompatActivity {
                             sTask = new Subtask(arrayList.get(arrayList.size()-1), (int) id, 0);
                             long subId = appDatabase.subTaskModel().insertSubTask(sTask);
                             Log.d("CHECK***********", "subtaskID: " +arrayList.get(arrayList.size()-1)+":"+ subId+" taskID: "+id);
-
                             // next thing you have to do is check if your adapter has changed
                             adapter.notifyDataSetChanged();
                         }
                     })
                             .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
-
                                 }
                             })
                             .show();
-
                      }
             });
-
 
             btnCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-
+                    long subId;
+                    int count = 0;
+                    int totalCount = 0;
+                    appDatabase.subTaskModel().deleteSubtasks(id);
                     SparseBooleanArray positioncheck = linearMain.getCheckedItemPositions();
-
-                    int count = linearMain.getCount();
-
+                    count = linearMain.getCount();
                     for (int i = count - 1; i >= 0; i--) {
                         if (positioncheck.get(i)) {
-
                             adapter.remove(arrayList.get(i));
-
                         }
                     }
                     positioncheck.clear();
-
                     adapter.notifyDataSetChanged();
+                    SparseBooleanArray sparseBooleanArray = linearMain.getCheckedItemPositions();
+                    Subtask sTask;
+                    for (int i = 0; i < arrayList.size(); i++) {
+                        if (sparseBooleanArray.get(i)) {
+                            sTask = new Subtask(arrayList.get(i), (int) id, 1);
+                            count++;
+                        } else {
+                            sTask = new Subtask(arrayList.get(i), (int) id, 0);
+                        }
+                        subId=appDatabase.subTaskModel().insertSubTask(sTask);
+                        totalCount++;
+                        Log.d("*****************", "subtaskID: " + subId); //Jessica
+                    }
+                    appDatabase.taskModel().updateTaskCount(count, totalCount, (int) id);
                 }
             });
         }
