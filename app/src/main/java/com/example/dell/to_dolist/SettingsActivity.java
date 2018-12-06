@@ -6,6 +6,7 @@ import android.app.ActionBar;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.util.regex.Pattern;
 
 
 public class SettingsActivity extends Activity {
@@ -28,7 +31,8 @@ public class SettingsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView(R.layout.feedback);
-
+        String email_pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
         /*ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -36,15 +40,22 @@ public class SettingsActivity extends Activity {
 
         feedback=(TextView)findViewById( R.id.message_title ) ;
         submit_Feedback=(Button) findViewById( R.id.submitFeedback );
-
+        final Pattern pattern =  Pattern.compile(email_pattern);
         //setupActionBar();
 
         submit_Feedback.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+										 
 
+            public void onClick(View v) {
+                errorFlag=false;
                 email = (EditText) findViewById( R.id.email );
-                if(!(Patterns.EMAIL_ADDRESS.matcher( email.toString() ).matches()))
+                if(TextUtils.isEmpty(  email.getText().toString().trim()))
+                {
+                    email.setError( "Invalid email" );
+                }
+
+                if(!(pattern.matcher( email.getText().toString().trim() ).matches()))
                 {
                     email.setError( "Invalid email" );
                     errorFlag=true;
@@ -77,27 +88,7 @@ public class SettingsActivity extends Activity {
         submit_Feedback=findViewById( R.id.submitFeedback );
         Toast.makeText( this, "submitFeedback "+submit_Feedback.getText(), Toast.LENGTH_SHORT ).show();
     }
-    /**
-     * Set up the {@link android.app.ActionBar}, if the API is available.
-     */
-  /*  private void setupActionBar() {
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            // Show the Up button in the action bar.
-            actionBar.setDisplayHomeAsUpEnabled( true );
-        }
-    }*/
-
-
-       /* @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            int id = item.getItemId();
-            if (id == android.R.id.home) {
-                startActivity( new Intent( getActivity(), SettingsActivity.class ) );
-                return true;
-            }
-            return super.onOptionsItemSelected( item );
-        }*/
+    
     }
 
 
