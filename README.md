@@ -156,4 +156,4 @@ All the below mentioned functionalities are completed.
 [7] Analyze power use with Battery Historian  |  Android Developers. Retrieved from https://developer.android.com/topic/performance/power/battery-historian <br/>
 [8] Sensor  |  Android Developers. Retrieved from https://developer.android.com/reference/android/hardware/Sensor#TYPE_SIGNIFICANT_MOTION <br/>
 [9] ConnectivityManager  |  Android Developers. Retrieved from https://developer.android.com/reference/android/net/ConnectivityManager<br/>
-
+[10] Email Icons - Free Download, PNG and SVG, Icons8.com. (2018). [Online]. Retrieved from https://icons8.com/icon/set/email/all.<br/>
