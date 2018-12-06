@@ -22,7 +22,7 @@
     <string name="feedback_bug">Error</string>
     <string name="title_activity_settings">Settings</string>
     <string name="about">Settings</string>
-	<string name="feedback_message_title">Your message</string>
+	<string name="feedback_message_title">Your message:</string>
 	<string name="email_address">Email Address</string>
     <string name="feedback_title">Feedback</string>
 </resources>
