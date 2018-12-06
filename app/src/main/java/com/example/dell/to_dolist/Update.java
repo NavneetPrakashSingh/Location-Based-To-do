@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -89,6 +90,10 @@ public  class Update extends AppCompatActivity {
                             for (int i = 0; i < subtasks.size(); i++) //Jessica
                             {
                                 arrayList.add(subtasks.get(i).getTitle());
+                                if(subtasks.get(i).getStatus()==1)
+                                    linearMain.setItemChecked(i,true);
+                                else
+                                    linearMain.setItemChecked(i,false);
                                 adapter.notifyDataSetChanged();
                                 Log.i("0000000000000 :subtask", "" + subtasks.get(i).getTitle() + " " + subtasks.get(i).getStatus() + " " + subtasks.get(i).getMainTaskKey());
                             }
@@ -108,7 +113,30 @@ public  class Update extends AppCompatActivity {
                     android.R.layout.simple_list_item_multiple_choice, arrayList);
 
             linearMain.setAdapter(adapter);
+            linearMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                                  @Override
+                                                  public void onItemClick(AdapterView<?> parent, View view, int position, long idTask) {
+                                                      appDatabase.subTaskModel().deleteSubtasks(id);
+                                                      SparseBooleanArray sparseBooleanArray = linearMain.getCheckedItemPositions();
+                                                      Subtask sTask;
+                                                      long subId;
+                                                      for (int i = 0; i < arrayList.size(); i++) {
+                                                          if (sparseBooleanArray.get(i)) {
+                                                              Log.d("*****************", "status 1: " + arrayList.get(i)); //Jessica
+                                                              sTask = new Subtask(arrayList.get(i), (int) id, 1);
+                                                          } else {
+                                                              Log.d("*****************", "status 0: " + arrayList.get(i)); //Jessica
+                                                              sTask = new Subtask(arrayList.get(i), (int) id, 0);
+                                                          }
+                                                          subId=appDatabase.subTaskModel().insertSubTask(sTask);
+                                                          Log.d("*****************", "subtaskID: " + subId); //Jessica
+                                                      }
+                                                      //String item = (String) linearMain.getItemAtPosition(position);
+                                                      //Log.d("CHECKING ITEM", "onItemClick: "+item);
 
+                                                  }
+                                              }
+            );
 
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
