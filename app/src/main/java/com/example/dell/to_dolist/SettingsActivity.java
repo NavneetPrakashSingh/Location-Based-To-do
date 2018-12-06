@@ -26,14 +26,14 @@ public class SettingsActivity extends Activity {
         super.onCreate( savedInstanceState );
         setContentView(R.layout.feedback);
 
-        // referenced from StackOverflow
+        // referenced from http://regexlib.com
         String email_pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
         feedback=(TextView)findViewById( R.id.message_title ) ;
         submit_Feedback=(Button) findViewById( R.id.submitFeedback );
         final Pattern pattern =  Pattern.compile(email_pattern);
-        // end of reference from StackOverflow
+        
         submit_Feedback.setOnClickListener(new View.OnClickListener() {
             @Override
 										 
