@@ -88,7 +88,7 @@ To read and render it back the image from BLOB storage, we reversed the process 
 &nbsp;The application allows users to add a new task such as “Grocery”. This task can have multiple sub-tasks such as “Milk, bread, cheese” added under Grocery. The task title and its sub-task elements are stored in the database. 
 
 2. **View tasks on home screen**
-&nbsp;Every task created will be displayed on the home screen of the application. The order of display is as per the creation time. Instead of displaying all the subtasks at home screen, only the task title is displayed. This removes clutter on the home screen. 
+&nbsp;Every task created will be displayed on the home screen of the application along with visualization of amount of sub-tasks completed. Instead of displaying all the subtasks at home screen, only the task title is displayed. This removes clutter on the home screen. 
 
 3. **Checking/unchecking task**
 &nbsp;The application allows the user to check off the task is complete. Once the task is complete, a user may want to either check or uncheck the task. This gives the user an idea of how many tasks are completed. It helps the user to focus on other pending activities. 
@@ -97,7 +97,7 @@ To read and render it back the image from BLOB storage, we reversed the process 
 &nbsp;The application allows the user to update an existing task. As user freedom and control is of high importance, users can update an already created task. The app allows editing the task title, location, reminder date and the subtasks listed. This helps users in updating and changing as per their needs. 
 
 5. **Delete task**
-&nbsp;The application allows the user to delete an existing task. Once the task is selected, an option to delete is available on the menu bar and user can delete the task. There are times when the task is of no value, too old to maintain, or an incorrect task detail. This feature allows users to delete unwanted tasks. 
+&nbsp;The application allows the user to delete an existing task. Once the task is selected, an option to delete is available on the menu bar and user can delete the task. The task can also be deleted from the main screen by using the swipe action. There are times when the task is of no value, too old to maintain, or an incorrect task detail. This feature allows users to delete unwanted tasks. 
 
 6. **Camera feature**
 &nbsp;The application allows a user to upload To Do list as an image. It provides two options to get an image. First, a user can use his camera to click a picture of a list and the application will upload that in the database. Second, a user can upload an existing picture from gallery.   
