@@ -52,4 +52,9 @@ public interface TaskDao {
     @Query("UPDATE task_table SET count_status=:count, total_count= :total WHERE task_id = :taskId")
     void updateTaskCount(int count, int total, int taskId);
 
+    @Query("UPDATE task_table SET image=:image WHERE task_id = :taskId")
+    void updateTaskImage(byte[] image, int taskId);
+    @Query("UPDATE task_table SET task_title=:title WHERE task_id = :taskId")
+    void updateTaskTitle(String title, int taskId);
+
 }
