@@ -5,22 +5,6 @@
 
 package com.example.dell.to_dolist;
 
-/*
- * Copyright (C) 2017 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -37,20 +21,20 @@ import android.widget.TextView;
 
 import java.util.List;
 
+/*
+* Sample Input: Various elements related to the home page are combined
+* Sample Output: Displays independent task on the homepage
+* */
 
 public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskViewHolder> {
-    private TaskRepository mRepository;
     class TaskViewHolder extends RecyclerView.ViewHolder {
         private final TextView taskName;
-               /* , taskContent;*/
         public LinearLayout linearLayout;
         private ProgressBar progressBar;
         private Button deleteButton;
         private TaskViewHolder(View itemView) {
             super(itemView);
-           // taskId = itemView.findViewById(R.id.task_id);
             taskName = itemView.findViewById(R.id.taskName);
-           /* taskContent = itemView.findViewById(R.id.task_description);*/
             linearLayout = itemView.findViewById(R.id.todo_list);
             progressBar = itemView.findViewById(R.id.pbId);
             deleteButton = itemView.findViewById(R.id.deleteButton);
@@ -72,7 +56,6 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
     public void onBindViewHolder(final TaskViewHolder holder, final int position) {
 
        final TaskDisplay current = mTasks.get(position);
-        //set alternate colors for card view
         if(position % 2 == 0){
             holder.linearLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
         }
@@ -83,19 +66,6 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
         double percent= (current.getCount() * 100) / current.getTotalCount();
         holder.progressBar.setProgress( (int) percent );
-
-    /*   holder.deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Intent intent = new Intent(MainActivity.this, AddTaskActivity.class);
-                //startActivityForResult(intent, NEW_TASK_ACTIVITY_REQUEST_CODE);
-
-               // startActivity(new Intent(MainActivity.this,Pop.class));
-
-            }
-        });*/
-
-
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,8 +82,6 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         notifyDataSetChanged();
     }
 
-
-
     @Override
     public int getItemCount() {
         if (mTasks != null)
@@ -125,8 +93,3 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         return mTasks.get(position);
     }
 }
-
-/*public int getCOuntofProgress(int taskId)
-{
-    return TaskDao_Impl.countOfProgress(taskId);
-}*/

@@ -3,9 +3,12 @@
 * */
 
 package com.example.dell.to_dolist;
-
-
 import android.arch.persistence.room.ColumnInfo;
+
+/*
+* Sample Input: Various operations related to the task is being used
+* Sample Output: Task related to the operations are performed
+* */
 
 public class TaskDisplay {
     public String getTitle() {
