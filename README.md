@@ -142,16 +142,20 @@ We had a major issue of code present in multiple places within the applicaiton. 
 ## Project Status
 All the below mentioned functionalities are completed.
 
-#### Guaranteed Functionality
-- Feature 1 Add new task 
-- Feature 2 View tasks on home screen 
-- Feature 3 Checking/unchecking task 
-- Feature 4 Update existing task
-- Feature 5 Delete task
-- Feature 6 Camera feature 
-- Feature 7 Location tagging
-- Feature 8 Location-based reminder
-- Feature 9 Support & Feedback
+#### Minimum Functionality
+- Feature 1 Add new task (Completed)
+- Feature 2 View tasks on home screen (Completed)
+- Feature 3 Delete, Update existing task (Completed)
+- Feature 4 Support & Feedback (Completed)
+
+#### Expected Functionality
+- Feature 1 Checking/unchecking task (Completed)
+- Feature 2 Camera feature (Completed)
+
+#### Bonus Functionality
+- Feature 1 Location tagging (Completed)
+- Feature 2 Location-based reminder (Completed)
+-
 
 ## Sources
 [1] Developers, G. (2018). App permissions best practices | Android Developers. Retrieved from https://developer.android.com/training/permissions/usage-notes<br/>
