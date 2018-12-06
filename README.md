@@ -111,7 +111,7 @@ We had a major issue of code present in multiple places within the applicaiton. 
 4. Analysis : https://git.cs.dal.ca/castelino/To-Do-List/tree/master/ProjectDocumentation/Analysis
 
 ## Feature Section
-1. **Add new task**  
+1. **Add new task**
 &nbsp;The application allows users to add a new task such as “Grocery”. This task can have multiple sub-tasks such as “Milk, bread, cheese” added under Grocery. The task title and its sub-task elements are stored in the database. 
 
 2. **View tasks on home screen**
