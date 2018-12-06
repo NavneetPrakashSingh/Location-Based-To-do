@@ -136,17 +136,17 @@ We had a major issue of code present in multiple places within the applicaiton. 
 We have completed around 30% of the project. We have implemented the backend functionalities and some of the UI implementation as well. Status of the functionalities are listed below.
 
 #### Minimum Functionality
-- Feature 1 Create, update and remove tasks in list (Partially Implemented)
-- Feature 2 Task sorting (Partially Implemented)
-- Feature 3 Support form (Not Implemented)
+- Feature 1 Create, update and remove tasks in list 
+- Feature 2 Task sorting 
+- Feature 3 Support form 
 
 #### Expected Functionality
-- Feature 1 Notification Alert (Completed)
-- Feature 2 Location tagging for task (Completed)
+- Feature 1 Notification Alert 
+- Feature 2 Location tagging for task 
 
 #### Bonus Functionality
-- Feature 1 Task progress visualization (Not Implemented)
-- Feature 2 Image addition in list (Not Implemented)
+- Feature 1 Task progress visualization 
+- Feature 2 Image addition in list 
 
 ## Sources
 [1] Developers, G. (2018). App permissions best practices | Android Developers. Retrieved from https://developer.android.com/training/permissions/usage-notes<br/>
