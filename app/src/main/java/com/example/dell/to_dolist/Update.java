@@ -1,11 +1,15 @@
 package com.example.dell.to_dolist;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.arch.persistence.room.Room;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +24,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -31,20 +36,19 @@ import com.example.dell.to_dolist.db.model.Task;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import static com.example.dell.to_dolist.Pop.getImage;
-
 public  class Update extends AppCompatActivity {
 
     private static final String DATABASE_NAME = "todo_database";
     private  AppDatabase appDatabase = Room.databaseBuilder(this,AppDatabase.class,DATABASE_NAME).fallbackToDestructiveMigration().allowMainThreadQueries().build();
-
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
     public int id =0;
     private Button btn;
     private Button btnCancel;
     private Button submit;
-    //LinearLayout linearMain;
     CheckBox checkBox;
     EditText titleText;
     ImageView displayImage;
@@ -54,6 +58,7 @@ public  class Update extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
     private ArrayList<String> arrayList;
     private ArrayList<String> addList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -180,6 +185,12 @@ public  class Update extends AppCompatActivity {
             });
         }
     }
+    //Use camera fuctionality
+    private void camera() {
+
+        Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(camera, 1);
+    }
     // convert from bitmap to byte array
     public static byte[] getBytes(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -245,29 +256,40 @@ public  class Update extends AppCompatActivity {
                         appDatabase.taskModel().deleteTaskById(id);
                     }
                 }).start();
-                // Toast.makeText(Update.this,"Data deleted for id"+id,Toast.LENGTH_SHORT).show();
-
-            case R.id.action_add_location:
-                startActivity(new Intent(this,ChooseLocation.class));
+                startActivity(new Intent(Update.this, MainActivity.class));
                 return true;
 
-
-            case R.id.action_save:
+            case R.id.action_add_location:
+                startActivity(new Intent(this, ChooseLocation.class));
+                return true;
+            case R.id.action_add_image:
                 //Toast.makeText(Update.this,"Data Saved For id"+id,Toast.LENGTH_SHORT).show();
-                new Thread(new Runnable() {
+                final CharSequence[] items = {"Take Photo",
+                        "Cancel"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(Update.this);
+                builder.setTitle("Choose Category");
+
+                builder.setItems(items, new DialogInterface.OnClickListener() {
                     @Override
-                    public void run() {
+                    public void onClick(DialogInterface dialog, int item) {
+
+                        if (items[item].equals("Take Photo")) {
+                            camera();
+                        }  else if (items[item].equals("Cancel")) {
+                            dialog.dismiss();
+                        }
                     }
                 });
-
+                builder.show();
                 return true;
 
             default:
-                return super.onOptionsItemSelected(item);
-
+                Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivityForResult(myIntent, 0);
+                return true;
         }
-
     }
+
 
 
 }

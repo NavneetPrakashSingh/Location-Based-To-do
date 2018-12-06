@@ -5,13 +5,6 @@
     <!-- Two icons are hidden and two are only visible to user to take care of small screen sizes-->
 
     <item
-        android:id="@+id/action_save"
-        android:icon="@drawable/ic_check_white_24dp"
-        android:title="@string/check"
-        app:showAsAction="always"/>
-
-
-    <item
         android:id="@+id/action_delete"
         android:icon="@drawable/ic_delete_white_24dp"
         android:title="Delete"
@@ -20,7 +13,12 @@
     <item
         android:id="@+id/action_add_location"
         android:icon="@drawable/ic_add_location_white_24dp"
-        android:title="Delete"
+        android:title="Add Location"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_add_image"
+        android:icon="@drawable/ic_icon_camera_white"
+        android:title="Camera"
         app:showAsAction="always"/>
 
 </menu>
