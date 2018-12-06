@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -50,15 +51,18 @@ public  class Update extends AppCompatActivity {
     private Button btn;
     private Button btnCancel;
     private Button submit;
+    private Button saveTask;
     CheckBox checkBox;
     EditText titleText;
     ImageView displayImage;
     private byte[] dbFetchedbyte;
     private Bitmap photofinal;
     private ListView linearMain;
+    private byte[] photobyteDB;
     private ArrayAdapter<String> adapter;
     private ArrayList<String> arrayList;
     private ArrayList<String> addList;
+    private  boolean imageSetFlag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,9 +70,11 @@ public  class Update extends AppCompatActivity {
         setContentView(R.layout.activity_update);
         displayImage = findViewById(R.id.displayImageInUpdate);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        imageSetFlag = false;
         btn = (Button) findViewById(R.id.button);
         btnCancel = (Button) findViewById(R.id.btnCancel);
         submit = (Button) findViewById(R.id.submit);
+        saveTask = (Button)findViewById(R.id.saveTask) ;
         linearMain = findViewById(R.id.linear_main);
         //list = (ListView) findViewById(R.id.listView);
         arrayList = new ArrayList<String>();
@@ -179,6 +185,26 @@ public  class Update extends AppCompatActivity {
                      }
             });
 
+            saveTask.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(imageSetFlag==true){
+                        appDatabase.taskModel().updateTaskImage(photobyteDB, id);
+                        String titleValue = String.valueOf(titleText.getText());
+                        appDatabase.taskModel().updateTaskTitle(titleValue,id);
+                        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivityForResult(myIntent, 0);
+                    }else{
+                        String titleValue = String.valueOf(titleText.getText());
+                        appDatabase.taskModel().updateTaskTitle(titleValue,id);
+                        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivityForResult(myIntent, 0);
+                    }
+
+
+                }
+            });
+
             btnCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -219,6 +245,30 @@ public  class Update extends AppCompatActivity {
         Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(camera, 1);
     }
+    //Choose a category function
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case 1:
+                if (resultCode == RESULT_OK) {
+                    Bitmap photo = (Bitmap) data.getExtras().get("data");
+                    displayImage.setImageBitmap(photo);
+                    //Uri selectedImage = imageReturnedIntent.getData();
+                    // displayImage.setImageURI(selectedImage);
+                    byte[] photobyte = getBytes(photo);
+                    photobyteDB = photobyte;
+                }
+                break;
+            case 2:
+                if (resultCode == RESULT_OK) {
+                    Uri selectedImage = data.getData();
+                    displayImage.setImageURI(selectedImage);
+                    imageSetFlag= true;
+                }
+                break;
+        }
+    }
+
     // convert from bitmap to byte array
     public static byte[] getBytes(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
