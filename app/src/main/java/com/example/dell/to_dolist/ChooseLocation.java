@@ -11,6 +11,10 @@ import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 
+/*
+* Sample Input: List of options of location in drop down
+* Samput Output: Pinned location mapped to the task
+* */
 public class ChooseLocation extends AppCompatActivity {
 
     @Override
@@ -25,10 +29,6 @@ public class ChooseLocation extends AppCompatActivity {
 
             @Override
             public void onPlaceSelected(Place place) {
-//                Intent previousIntent = new Intent(getApplicationContext(),MainActivity.class);
-                Log.i("Location coordinates",String.valueOf(place.getLatLng()));
-//                previousIntent.putExtra("Location",String.valueOf(place.getName()));
-                //TODO : Add longitude and latitude here and send it to the previous activity
                 finish();
             }
 

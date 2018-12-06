@@ -10,6 +10,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/*
+* Sample Input: Button / swipe action available within the main page
+* Sample Output: Navigation drawer gets displayed
+* */
+
 public class NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
