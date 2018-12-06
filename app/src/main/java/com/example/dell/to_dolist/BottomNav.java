@@ -7,6 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+/*
+* Sample Input : Selection for task, add and home page to be entered at the bottom
+* Sample Output: Corresponding page related to the tab (home,task,add) is displayed
+* */
+
 public class BottomNav extends AppCompatActivity {
 
     private TextView mTextMessage;
