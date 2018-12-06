@@ -47,7 +47,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:tint="@color/colorBlack"
-                    app:srcCompat="@android:drawable/ic_dialog_email" />
+                    android:visibility="visible"
+                    android:src="@drawable/email" />
 
                 <EditText
                     android:id="@+id/email"
