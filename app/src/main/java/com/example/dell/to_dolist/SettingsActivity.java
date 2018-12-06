@@ -1,21 +1,15 @@
+/* Class file for Feedback form, will be called from MainActvity.java */
 package com.example.dell.to_dolist;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.app.ActionBar;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
 import java.util.regex.Pattern;
 
 
@@ -34,14 +28,9 @@ public class SettingsActivity extends Activity {
         String email_pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
-        /*ActionBar actionBar = getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        getActionBar().setBackgroundDrawable(new ColorDrawable( Color.parseColor("#3F51B5")));*/
-
         feedback=(TextView)findViewById( R.id.message_title ) ;
         submit_Feedback=(Button) findViewById( R.id.submitFeedback );
         final Pattern pattern =  Pattern.compile(email_pattern);
-        //setupActionBar();
 
         submit_Feedback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +38,7 @@ public class SettingsActivity extends Activity {
 
             public void onClick(View v) {
                 errorFlag=false;
+                // error handling for email input and text message
                 email = (EditText) findViewById( R.id.email );
                 if(TextUtils.isEmpty(  email.getText().toString().trim()))
                 {
@@ -83,12 +73,7 @@ public class SettingsActivity extends Activity {
         });
     }
 
-    public void sendFeedback()
-    {
-        submit_Feedback=findViewById( R.id.submitFeedback );
-        Toast.makeText( this, "submitFeedback "+submit_Feedback.getText(), Toast.LENGTH_SHORT ).show();
-    }
-    
+
     }
 
 
