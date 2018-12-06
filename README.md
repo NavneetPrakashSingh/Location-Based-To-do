@@ -1,5 +1,5 @@
 # Identification
-#### To-do List Application <img align="right" src="/ProjectDocumentation/LogoDesignFiles/logo_rounded.png" alt="Logo Icon"  width="500" height="400" style="float: right; margin-right: 10px;" />
+#### To-do List Application <img align="right" src="/ProjectDocumentation/LogoDesignFiles/logo_rounded.png" alt="Logo Icon"  width="512" height="413" style="float: right; margin-right: 10px;" />
 
 Group Members: 
 
@@ -133,7 +133,7 @@ We had a major issue of code present in multiple places within the applicaiton. 
 
 
 ## Project Status
-All the below mentioned tasks are completed.
+All the below mentioned functionalities are completed.
 
 #### Guaranteed Functionality
 - Feature 1 Add new task 
