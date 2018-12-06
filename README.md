@@ -140,7 +140,7 @@ We had a major issue of code present in multiple places within the applicaiton. 
 
 
 ## Project Status
-All the below mentioned functionalities are completed.
+We have completed 100% of the project. Some bugs have been identified during testing and we are currently resolving them. We are also enhancing the UI to make it more intuitive. All the functionalities that were promised in project update 2 have been successfully completed. Additionally, we have implemented an extra feature which displays a progress bar to show the completion status of each task. This will help the students to monitor their progress. The future scope of this project will be to allow the students to use this app for note-taking. We can also support videos and voice notes along with images which will be really helpful and interesting.
 
 #### Minimum Functionality
 - Feature 1 Add new task (Completed)
