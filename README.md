@@ -40,7 +40,7 @@ Kindly perform the below steps to run the code:
 2) Import the code in Android Studio.
 3) Ensure that the gradle version denoted in build.gradle file is 3.1.4.
 4) Click the button 'Sync Project With Gradle Files' or go to Tools -> Android -> Sync Project with Gradle Files.
-5) Run the app on the emulator or the mobile phone.
+5) Run the app on the emulator or the mobile phone (App is for Android API Version 23 or higher).
 
 ```
 ## Code Examples
@@ -155,6 +155,7 @@ We have completed 100% of the project. Some bugs have been identified during tes
 #### Bonus Functionality
 - Feature 1 Location tagging (Completed)
 - Feature 2 Location-based reminder (Completed)
+- Feature 3 Visualise completed tasks (Completed)
 
 
 ## Sources
