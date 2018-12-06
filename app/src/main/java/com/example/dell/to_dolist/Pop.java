@@ -46,6 +46,11 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ * Sample Input : Various task related to pip are being displayed like opening the popup, adding task, subtask, saving task
+ * Sample output: Task are being displayed on the homepage once save is clicked
+ */
+
 public class Pop extends AppCompatActivity {
 
     //private static final String TAG = "Pop";
