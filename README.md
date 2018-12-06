@@ -7,7 +7,7 @@ Group Members:
 - Navneet Singh      B00810744	
 - Shubham Narang     B00810159
 - Sharon Alva        B00813350 	
-- Utsav Soni         B0081269
+- Utsav Soni         B00812689
 - Jismy Johnson      B00813344
 
 Contact email: jessica.castelino@dal.ca
