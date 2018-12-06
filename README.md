@@ -140,18 +140,22 @@ We had a major issue of code present in multiple places within the applicaiton. 
 
 
 ## Project Status
-All the below mentioned functionalities are completed.
+We have completed 100% of the project. Some bugs have been identified during testing and we are currently resolving them. We are also enhancing the UI to make it more intuitive. All the functionalities that were promised in project update 2 have been successfully completed. Additionally, we have implemented an extra feature which displays a progress bar to show the completion status of each task. This will help the students to monitor their progress. The future scope of this project will be to allow the students to use this app for note-taking. We can also support videos and voice notes along with images which will be really helpful and interesting.
 
-#### Guaranteed Functionality
-- Feature 1 Add new task 
-- Feature 2 View tasks on home screen 
-- Feature 3 Checking/unchecking task 
-- Feature 4 Update existing task
-- Feature 5 Delete task
-- Feature 6 Camera feature 
-- Feature 7 Location tagging
-- Feature 8 Location-based reminder
-- Feature 9 Support & Feedback
+#### Minimum Functionality
+- Feature 1 Add new task (Completed)
+- Feature 2 View tasks on home screen (Completed)
+- Feature 3 Delete, Update existing task (Completed)
+- Feature 4 Support & Feedback (Completed)
+
+#### Expected Functionality
+- Feature 1 Checking/unchecking task (Completed)
+- Feature 2 Camera feature (Completed)
+
+#### Bonus Functionality
+- Feature 1 Location tagging (Completed)
+- Feature 2 Location-based reminder (Completed)
+
 
 ## Sources
 [1] Developers, G. (2018). App permissions best practices | Android Developers. Retrieved from https://developer.android.com/training/permissions/usage-notes<br/>
@@ -164,3 +168,4 @@ All the below mentioned functionalities are completed.
 [8] Sensor  |  Android Developers. Retrieved from https://developer.android.com/reference/android/hardware/Sensor#TYPE_SIGNIFICANT_MOTION <br/>
 [9] ConnectivityManager  |  Android Developers. Retrieved from https://developer.android.com/reference/android/net/ConnectivityManager<br/>
 [10] Email Icons - Free Download, PNG and SVG, Icons8.com. (2018). [Online]. Retrieved from https://icons8.com/icon/set/email/all.<br/>
+[11] G. Training, "14.1A: Room, LiveData, ViewModel · Advanced Android Development Course- Practicals", Google-developer-training.gitbooks.io, 2018. [Online]. Available [here](https://google-developer-training.gitbooks.io/android-developer-advanced-course-practicals/content/unit-6-working-with-architecture-components/lesson-14-room,-livedata,-viewmodel/14-1-a-room-livedata-viewmodel/14-1-a-room-livedata-viewmodel.html). [Accessed: 05- Dec- 2018].
