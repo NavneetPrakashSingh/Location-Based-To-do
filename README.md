@@ -83,6 +83,22 @@ To read and render it back the image from BLOB storage, we reversed the process 
 ```
 
 
+**Problem 3: Code to check internet connectivity **
+ As we are including fetching location from Google API which requires internet connectivity, we do need to have something to indicate users in case of no connectivity. For this we uses Connectivity Manager
+
+// Return true if no internet connectivity
+//Checking Internet connectivity is there or not
+
+    public static boolean checkNetworkAvailability(Context context)
+    {
+        //return if connected
+        return ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo() != null;
+    }
+            
+            
+```
+
+
 ## Feature Section
 1. **Add new task**  
 &nbsp;The application allows users to add a new task such as “Grocery”. This task can have multiple sub-tasks such as “Milk, bread, cheese” added under Grocery. The task title and its sub-task elements are stored in the database. 
