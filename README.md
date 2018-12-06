@@ -1,5 +1,5 @@
 # Identification
-#### To-do List Application <img align="right" src="/ProjectDocumentation/LogoDesignFiles/logo_rounded.png" alt="Logo Icon"  width="512" height="413" style="float: right; margin-right: 10px;" />
+#### To-do List Application <img align="right" src="/ProjectDocumentation/LogoDesignFiles/logo_rounded.png" alt="Logo Icon"  width="500" height="400" style="float: right; margin-right: 10px;" />
 
 Group Members: 
 
@@ -133,18 +133,18 @@ We had a major issue of code present in multiple places within the applicaiton. 
 
 
 ## Project Status
-Status of the functionalities are listed below.
+All the below mentioned tasks are completed.
 
 #### Guaranteed Functionality
-- Feature 1 Add new task (Completed)
-- Feature 2 View tasks on home screen (Completed)
-- Feature 3 Checking/unchecking task (Completed)
-- Feature 4 Update existing task (Completed)
-- Feature 5 Delete task (Completed)
-- Feature 6 Camera feature (Completed)
-- Feature 7 Location tagging (Completed)
-- Feature 8 Location-based reminder (Completed)
-- Feature 9 Support & Feedback (Completed)
+- Feature 1 Add new task 
+- Feature 2 View tasks on home screen 
+- Feature 3 Checking/unchecking task 
+- Feature 4 Update existing task
+- Feature 5 Delete task
+- Feature 6 Camera feature 
+- Feature 7 Location tagging
+- Feature 8 Location-based reminder
+- Feature 9 Support & Feedback
 
 ## Sources
 [1] Developers, G. (2018). App permissions best practices | Android Developers. Retrieved from https://developer.android.com/training/permissions/usage-notes<br/>
