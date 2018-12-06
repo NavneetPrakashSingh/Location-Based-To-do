@@ -86,6 +86,7 @@ To read and render it back the image from BLOB storage, we reversed the process 
 **Problem 3: Code to check internet connectivity **
  As we are including fetching location from Google API which requires internet connectivity, we do need to have something to indicate users in case of no connectivity. For this we uses Connectivity Manager
 
+```
 // Return true if no internet connectivity
 //Checking Internet connectivity is there or not
 
@@ -94,6 +95,8 @@ To read and render it back the image from BLOB storage, we reversed the process 
         //return if connected
         return ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo() != null;
     }
+
+// Source: Android Developer [9]    
             
             
 ```
@@ -153,3 +156,5 @@ We have completed around 30% of the project. We have implemented the backend fun
 [6] Location strategies  |  Android Developers. (2018). Retrieved from https://developer.android.com/guide/topics/location/strategies#java <br/>
 [7] Analyze power use with Battery Historian  |  Android Developers. Retrieved from https://developer.android.com/topic/performance/power/battery-historian <br/>
 [8] Sensor  |  Android Developers. Retrieved from https://developer.android.com/reference/android/hardware/Sensor#TYPE_SIGNIFICANT_MOTION <br/>
+[9] ConnectivityManager  |  Android Developers. Retrieved from https://developer.android.com/reference/android/net/ConnectivityManager<br/>
+
