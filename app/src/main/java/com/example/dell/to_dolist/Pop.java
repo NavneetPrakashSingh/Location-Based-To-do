@@ -105,7 +105,7 @@ public class Pop extends AppCompatActivity {
             public void onClick(View view) {
 
                 // View view1 = (LayoutInflater.from(Pop.this)).inflate(R.layout.user_input, null);
-
+                Log.d("I AM UNIQUE in pop", "onClick: ");
                 AlertDialog.Builder builder2 = new AlertDialog.Builder(Pop.this);
                 LayoutInflater inflater = Pop.this.getLayoutInflater();
                 ViewGroup parent = null;
