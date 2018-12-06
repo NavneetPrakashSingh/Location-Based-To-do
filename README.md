@@ -164,3 +164,4 @@ All the below mentioned functionalities are completed.
 [8] Sensor  |  Android Developers. Retrieved from https://developer.android.com/reference/android/hardware/Sensor#TYPE_SIGNIFICANT_MOTION <br/>
 [9] ConnectivityManager  |  Android Developers. Retrieved from https://developer.android.com/reference/android/net/ConnectivityManager<br/>
 [10] Email Icons - Free Download, PNG and SVG, Icons8.com. (2018). [Online]. Retrieved from https://icons8.com/icon/set/email/all.<br/>
+[11] G. Training, "14.1A: Room, LiveData, ViewModel · Advanced Android Development Course- Practicals", Google-developer-training.gitbooks.io, 2018. [Online]. Available [here](https://google-developer-training.gitbooks.io/android-developer-advanced-course-practicals/content/unit-6-working-with-architecture-components/lesson-14-room,-livedata,-viewmodel/14-1-a-room-livedata-viewmodel/14-1-a-room-livedata-viewmodel.html). [Accessed: 05- Dec- 2018].
