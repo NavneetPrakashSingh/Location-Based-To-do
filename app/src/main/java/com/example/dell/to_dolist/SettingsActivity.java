@@ -12,6 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.regex.Pattern;
 
+/*
+* Sample Input: Settings page is displayed showing feedback form, option to display email, enter message
+* Sample Ouput: Feedback along with email is submitted
+* */
 
 public class SettingsActivity extends Activity {
 
