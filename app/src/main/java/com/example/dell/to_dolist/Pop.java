@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -83,33 +84,44 @@ public class Pop extends AppCompatActivity {
 
                 // View view1 = (LayoutInflater.from(Pop.this)).inflate(R.layout.user_input, null);
                 //setting up alert dialogue for adding subtask
-                AlertDialog.Builder builder2 = new AlertDialog.Builder(Pop.this);
+               final AlertDialog.Builder builder2 = new AlertDialog.Builder(Pop.this);
                 LayoutInflater inflater = Pop.this.getLayoutInflater();
-                ViewGroup parent = null;
                 //setting user_input layout for alert dialogue
-                View view1 = inflater.inflate(R.layout.user_input, parent, false);
+                View view1 = inflater.inflate(R.layout.user_input, null);
                 final EditText userInput1 = (EditText) view1.findViewById(R.id.userinput);
-                builder2.setView(view1);
+                builder2.setCancelable(false);
+
+                //onclick listener for CANCEL button
+                builder2.setNegativeButton("CANCEL",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
 
                 //onclick listener for OK button
-                builder2.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                builder2.setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                              //  String tag = userInput1.getText().toString().trim();
+                                if (userInput1.getText().toString().trim().length()==0) {
+                                   
+                                    Toast.makeText(getApplicationContext(), "Enter a valid Subtask", Toast.LENGTH_SHORT).show();
 
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                        String tag = userInput1.getText().toString();
-                        // this line adds the data of your EditText and puts in your array
-                        arrayList.add(tag);
-                        // next thing you have to do is check if your adapter has changed
-                        adapter.notifyDataSetChanged();
-                    }
-                })
-                        //onclick listener for CANCEL button
-                        .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-
+                                }  else {
+                                    String tag1 = userInput1.getText().toString();
+                                    // this line adds the data of your EditText and puts in your array
+                                    arrayList.add(tag1);
+                                    // next thing you have to do is check if your adapter has changed
+                                    adapter.notifyDataSetChanged();
+                                    // dismiss your alert.
+                                }
                             }
-                        })
-                        .show();
+                        });
+
+                builder2.setView(view1);
+                builder2.create().show();
+
             }
         });
 
@@ -310,8 +322,3 @@ public class Pop extends AppCompatActivity {
         }
     }
 }
-
-
-
-
-
