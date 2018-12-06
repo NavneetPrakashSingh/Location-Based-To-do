@@ -31,6 +31,8 @@ import android.widget.EditText;
 
 /**
  * Activity for entering a word.
+ * Sample Input :Input title and subtask
+ * Sample Output:Adds title and subtask to database
  */
 
 public class AddTaskActivity extends AppCompatActivity {
