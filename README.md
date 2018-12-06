@@ -40,7 +40,7 @@ Kindly perform the below steps to run the code:
 2) Import the code in Android Studio.
 3) Ensure that the gradle version denoted in build.gradle file is 3.1.4.
 4) Click the button 'Sync Project With Gradle Files' or go to Tools -> Android -> Sync Project with Gradle Files.
-5) Run the app on the emulator or the mobile phone.
+5) Run the app on the emulator or the mobile phone (App is for Android API Version 23 or higher).
 
 ```
 ## Code Examples
@@ -111,7 +111,7 @@ We had a major issue of code present in multiple places within the applicaiton. 
 4. Analysis : https://git.cs.dal.ca/castelino/To-Do-List/tree/master/ProjectDocumentation/Analysis
 
 ## Feature Section
-1. **Add new task**  
+1. **Add new task**
 &nbsp;The application allows users to add a new task such as “Grocery”. This task can have multiple sub-tasks such as “Milk, bread, cheese” added under Grocery. The task title and its sub-task elements are stored in the database. 
 
 2. **View tasks on home screen**
@@ -155,6 +155,7 @@ We have completed 100% of the project. Some bugs have been identified during tes
 #### Bonus Functionality
 - Feature 1 Location tagging (Completed)
 - Feature 2 Location-based reminder (Completed)
+- Feature 3 Visualise completed tasks (Completed)
 
 
 ## Sources
@@ -167,5 +168,5 @@ We have completed 100% of the project. Some bugs have been identified during tes
 [7] Analyze power use with Battery Historian  |  Android Developers. Retrieved from https://developer.android.com/topic/performance/power/battery-historian <br/>
 [8] Sensor  |  Android Developers. Retrieved from https://developer.android.com/reference/android/hardware/Sensor#TYPE_SIGNIFICANT_MOTION <br/>
 [9] ConnectivityManager  |  Android Developers. Retrieved from https://developer.android.com/reference/android/net/ConnectivityManager<br/>
-[10] Email,Camera and Calendar Icons - Free Download, PNG and SVG, Icons8.com. (2018). [Online]. Retrieved from https://icons8.com/icon/set/email/all.<br/>
+[10] Email, Camera and Calendar Icons - Free Download, PNG and SVG, Icons8.com. (2018). [Online]. Retrieved from https://icons8.com/icon/set/email/all.<br/>
 [11] G. Training, "14.1A: Room, LiveData, ViewModel · Advanced Android Development Course- Practicals", Google-developer-training.gitbooks.io, 2018. [Online]. Available [here](https://google-developer-training.gitbooks.io/android-developer-advanced-course-practicals/content/unit-6-working-with-architecture-components/lesson-14-room,-livedata,-viewmodel/14-1-a-room-livedata-viewmodel/14-1-a-room-livedata-viewmodel.html). [Accessed: 05- Dec- 2018].
