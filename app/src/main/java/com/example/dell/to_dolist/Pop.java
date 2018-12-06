@@ -51,9 +51,8 @@ public class Pop extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
     private ArrayList<String> arrayList;
     private byte[] photobyteDB;
-    private byte[] dbFetchedbyte;
-    private Bitmap photofinal;
     private ImageView displayImage;
+    private String date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +104,7 @@ public class Pop extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                               //  String tag = userInput1.getText().toString().trim();
                                 if (userInput1.getText().toString().trim().length()==0) {
-                                   
+
                                     Toast.makeText(getApplicationContext(), "Enter a valid Subtask", Toast.LENGTH_SHORT).show();
 
                                 }  else {
@@ -162,7 +161,7 @@ public class Pop extends AppCompatActivity {
                         public void run() {
                             String titleValue = String.valueOf(editTxt1.getText());
                             //Adding data to db
-                            Task task = new Task(titleValue, "1/2/3", "1", "2/2/3", "1", "1", "1", photobyteDB, 0, 0);
+                            Task task = new Task(titleValue,date, "1", "2/2/3", "1", "1", "1", photobyteDB, 0, 0);
                             long id = appDatabase.taskModel().insertTaskWithId(task);
                             Log.d("*****************", "taskID: " + id); //Jessica
                             long subId;
@@ -207,7 +206,7 @@ public class Pop extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                String date = month + "/" + day + "/" + year;
+                date = month + "/" + day + "/" + year;
 
             }
         };
@@ -322,3 +321,8 @@ public class Pop extends AppCompatActivity {
         }
     }
 }
+
+
+
+
+
