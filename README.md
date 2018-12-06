@@ -83,7 +83,7 @@ To read and render it back the image from BLOB storage, we reversed the process 
 ```
 
 
-**Problem 3: Code to check internet connectivity **
+**Problem 3: Code to check internet connectivity**
  As we are including fetching location from Google API which requires internet connectivity, we do need to have something to indicate users in case of no connectivity. For this we uses Connectivity Manager
 
 ```
@@ -97,7 +97,6 @@ To read and render it back the image from BLOB storage, we reversed the process 
     }
 
 // Source: Android Developer [9]    
-            
             
 ```
 
