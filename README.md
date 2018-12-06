@@ -155,7 +155,7 @@ All the below mentioned functionalities are completed.
 #### Bonus Functionality
 - Feature 1 Location tagging (Completed)
 - Feature 2 Location-based reminder (Completed)
--
+
 
 ## Sources
 [1] Developers, G. (2018). App permissions best practices | Android Developers. Retrieved from https://developer.android.com/training/permissions/usage-notes<br/>
