@@ -42,10 +42,6 @@
 
         <activity android:name=".ChooseLocation" />
         <activity
-            android:name=".NavDrawer"
-            android:label="@string/title_activity_nav_drawer"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".Pop"
             android:label="New Task"
             android:theme="@style/Theme.AppCompat" />
