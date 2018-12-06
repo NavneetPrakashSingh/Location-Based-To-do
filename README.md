@@ -129,24 +129,22 @@ We had a major issue of code present in multiple places within the applicaiton. 
 &nbsp;The application gives a provision to the user to set a location for every task. In the future, if the user happens to be around that location, a reminder will be sent to the user in the form of a notification. 
 
 9. **Support & Feedback**
-&nbsp;A simple feedback form will be displayed for the user to send their concerns and queries regarding the application. This feature will be accessible from the drawable menu. By providing support regarding the app, it helps not only them with their concerns, but also us as to how effectively the application was developed. 
+&nbsp;A simple feedback form will be displayed for the user to send their concerns and queries regarding the application. This feature will be accessible from the top right side of the application in action bar. By providing support regarding the app, it helps not only them with their concerns, but also us as to how effectively the application was developed. 
 
 
 ## Project Status
-We have completed around 30% of the project. We have implemented the backend functionalities and some of the UI implementation as well. Status of the functionalities are listed below.
+All the below mentioned functionalities are completed.
 
-#### Minimum Functionality
-- Feature 1 Create, update and remove tasks in list 
-- Feature 2 Task sorting 
-- Feature 3 Support form 
-
-#### Expected Functionality
-- Feature 1 Notification Alert 
-- Feature 2 Location tagging for task 
-
-#### Bonus Functionality
-- Feature 1 Task progress visualization 
-- Feature 2 Image addition in list 
+#### Guaranteed Functionality
+- Feature 1 Add new task 
+- Feature 2 View tasks on home screen 
+- Feature 3 Checking/unchecking task 
+- Feature 4 Update existing task
+- Feature 5 Delete task
+- Feature 6 Camera feature 
+- Feature 7 Location tagging
+- Feature 8 Location-based reminder
+- Feature 9 Support & Feedback
 
 ## Sources
 [1] Developers, G. (2018). App permissions best practices | Android Developers. Retrieved from https://developer.android.com/training/permissions/usage-notes<br/>
@@ -158,4 +156,4 @@ We have completed around 30% of the project. We have implemented the backend fun
 [7] Analyze power use with Battery Historian  |  Android Developers. Retrieved from https://developer.android.com/topic/performance/power/battery-historian <br/>
 [8] Sensor  |  Android Developers. Retrieved from https://developer.android.com/reference/android/hardware/Sensor#TYPE_SIGNIFICANT_MOTION <br/>
 [9] ConnectivityManager  |  Android Developers. Retrieved from https://developer.android.com/reference/android/net/ConnectivityManager<br/>
-
+[10] Email Icons - Free Download, PNG and SVG, Icons8.com. (2018). [Online]. Retrieved from https://icons8.com/icon/set/email/all.<br/>
